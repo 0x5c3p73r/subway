@@ -1,0 +1,33 @@
+<%= form_with(model: config, url: coach_config_path(coach, config), class: "contents") do |form| %>
+  <% if config.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(config.errors.count, "error") %> prohibited this config from being saved:</h2>
+
+      <ul>
+        <% config.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="shadow sm:overflow-hidden sm:rounded-md md:gap-6">
+    <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+      <div>
+        <%= form.label :name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
+        <%= form.text_field :name, class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+    </div>
+
+    <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+      <div>
+        <%= form.label :link, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
+        <%= form.url_field :link, class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6">
+      <%= form.submit class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+    </div>
+  </div>
+<% end %>

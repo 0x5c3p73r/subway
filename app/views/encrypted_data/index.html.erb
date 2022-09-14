@@ -1,0 +1,42 @@
+<div class="mx-auto">
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+      <h1 class="font-bold text-4xl">Generate encrypted data</h1>
+    </div>
+
+    <div class="shadow sm:overflow-hidden sm:rounded-md md:gap-6" data-controller="generate-encrypted-data">
+      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
+            Master key
+          </label>
+          <input data-generate-encrypted-data-target="masterKey" class="mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+      </div>
+
+      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
+            Encryped Data
+          </label>
+          <textarea rows="5" data-generate-encrypted-data-target="encrypedData" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></textarea>
+        </div>
+      </div>
+
+      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
+            Raw Data
+          </label>
+          <textarea rows="5" data-generate-encrypted-data-target="rawData" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></textarea>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6">
+        <button data-action="generate-encrypted-data#generate" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Generate
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

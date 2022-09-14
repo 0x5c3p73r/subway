@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    restart: unless-stopped
+    image: ghcr.io/0x5c3p73r/subway
+    environment:
+      # TODO: Generate new RAILS_MASTER_KEY and RAILS_ENCRYPTED_DATA first!
+      RAILS_MASTER_KEY: a8ec28f5d85aad6fca7064073c19bf68
+      RAILS_ENCRYPTED_DATA: "K73YeivVdHgi+ZozIMQgY81bBDDVdXVIB7gOkKzyabCjExL3Oz+xN73/21Or7R0Qg5LCJypBes4iIStlZdLv28h3gA720fM3ASx+3LEVsaRQLNWppNgzjZEzMtK2g6N90ONBEak6nYw1ZXN+rdSSd1ca4uAu3miKPcj7WIYpYtwYFNtj+CXWWWRbkrHn4w+qSc1aXgzwy8tJFRzk7RT2LPJx0VFicEWcrNptSMbYjqhTB6WPKAa8C2hQ+S2ZtL9kUCTAt0HdDQxij6CfpcrQ+xyqPmGqRFg9fnS+mHIoy2Waj7SbolBUkA6+lspdgT9aN4dVSdFVbZ27GHHoM4B34q/RdksBdDElZTu2sHR8j8Jln7sCwOTcDV/p--zC08K/6vAg/dIvaz--UvqVCjL2KkMCiJbTBvC4PQ=="
+
+      # Only support postgresql database
+      DATABASE_URL: postgres://postgres:postgres@db/postgres
+
+      # Optinal, set a alias name, unless use host as backend name.
+      # LOCAL_BACKEND_NAME: local-api
+      LOCAL_BACKEND_URL: http://localhost:25500
+    ports:
+      - "3000:3000"
+
+  subconverter:
+    restart: unless-stopped
+    image: tindy2013/subconverter
+    ports:
+      - "25500:25500"
+
+  db:
+    restart: unless-stopped
+    image: postgres:12-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+
+volumes:
+  postgres-data:

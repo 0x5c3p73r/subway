@@ -1,0 +1,137 @@
+<%= form_with(model: coach, class: "contents") do |form| %>
+  <% if coach.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(coach.errors.count, "error") %> prohibited this coach from being saved:</h2>
+      <ul>
+        <% coach.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="border-t border-gray-200">
+    <dl>
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :name %>
+        </dt>
+        <dd class=" text-gray-900 sm:col-span-3 sm:mt-0">
+          <%= form.text_field :name, placeholder: 'Name to remembe this rule', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-600 dark:focus:border-indigo-600" %>
+        </dd>
+      </div>
+
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :description %>
+        </dt>
+        <dd class="text-gray-900 sm:col-span-3 sm:mt-0">
+          <%= form.text_field :description, placeholder: 'Add more description', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-600 dark:focus:border-indigo-600" %>
+        </dd>
+      </div>
+
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :subscribe_urls %>
+        </dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <% unless coach.subscribes.count.zero? %>
+          <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+            <% coach.subscribes.each do |subscribe| %>
+            <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+              <div class="flex w-0 flex-1 items-center">
+                <span class="ml-2 w-0 flex-1 truncate"><%= subscribe.name %></span>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                <%= link_to t('.edit'), edit_coach_subscribe_path(coach, subscribe), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <% end %>
+
+          <%= form.text_area :subscribe_urls, rows: 3, value: params.try(:[], :coach).try(:[], :subscribe_urls), placeholder: "One subscribe url per line, or use `|` vertical key to split multiple urls.",
+              class: "mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        </dd>
+      </div>
+
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :target %>
+        </dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <%= form.select :target, all_targets, { include_blank: false }, { class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-600 dark:focus:border-indigo-600" } %>
+        </dd>
+      </div>
+
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :configs %>
+        </dt>
+
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+            <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+              <div class="flex w-0 flex-1 items-center">
+                <input class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" type="radio" checked="<%= coach.config.blank? %>" value="" name="coach[configs]" id="coach_configs_blank">
+                <label class="ml-3 block text-sm font-medium text-gray-700" for="coach_configs_blank">
+                  <%= t('.blank') %>
+                </label>
+              </div>
+            </li>
+
+            <%= form.collection_radio_buttons :configs, coach.avaiable_configs, :id, :name do |r| %>
+            <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+              <div class="flex w-0 flex-1 items-center">
+                <%= r.radio_button(checked: r.value == coach.config&.id, class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500") %>
+                <%= r.label(class: "ml-3 block text-sm font-medium text-gray-700") do %>
+                  <%= r.text %>
+                <% end %>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                  <% if (config = Config.find(r.value)) && config.customer? %>
+                    <%= link_to t(".edit"), edit_coach_config_path(coach, config), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+
+          <%= form.url_field :custom_config, placeholder: "Custom config url, fill to overwrite above selected", class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        </dd>
+      </div>
+
+      <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">
+          <%= form.label :backends %>
+        </dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+            <%= form.collection_radio_buttons :backends, coach.avaiable_backends, :id, :name do |r| %>
+            <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+              <div class="flex w-0 flex-1 items-center">
+                <%= r.radio_button(checked: r.value == coach.backend.id, class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500") %>
+                <%= r.label(class: "ml-3 block text-sm font-medium text-gray-700") do %>
+                  <%= r.text %>
+                <% end %>
+              </div>
+              <div class="ml-4 flex-shrink-0">
+                <% if (backend = Backend.find(r.value)) && backend.customer? %>
+                  <%= link_to t(".edit"), edit_coach_backend_path(coach, backend), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+                <% end %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+
+          <%= form.url_field :custom_backend, placeholder: "Custom backend url, fill to overwrite above selected", class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6">
+    <%= link_to t('.cancel'), coach_path(coach), class: "mt-2 mx-2 rounded-md py-2 px-4 px-5 bg-gray-100 inline-block font-medium hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" %>
+    <%= form.submit class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" %>
+  </div>
+<% end %>

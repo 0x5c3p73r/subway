@@ -1,0 +1,32 @@
+name: Publish Development Codespace Image
+
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  publish-code-space-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.CR_PAT }}
+
+    - name: Build and push Codespace image
+      uses: docker/build-push-action@v3
+      env:
+        REPLACE_CHINA_MIRROR: false
+      with:
+        context: .
+        file: .devcontainer/Dockerfile.dev
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:codespace

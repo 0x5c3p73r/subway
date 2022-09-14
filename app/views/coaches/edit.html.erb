@@ -1,0 +1,17 @@
+<div class="mx-auto">
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+      <div class="relative flex items-center justify-between">
+        <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t('.customize_your_coach') %></h3>
+        <p class="p-2 rounded-lg mt-1 text-sm text-gray-100 border border-gray-300 bg-gray-800"><%= @ticket %></p>
+      </div>
+      <p class="mt-1 text-sm text-gray-600">
+      <%= t('.ticket_conduct_and_term') %>
+      Use ticket to custormize this coach.
+      <span class="font-bold">Make sure to copy your ticket now.</span>
+      </p>
+    </div>
+
+    <%= render "edit_form", coach: @coach %>
+  </div>
+</div>

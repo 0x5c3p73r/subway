@@ -1,0 +1,16 @@
+<div class="mx-auto">
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+      <h1 class="font-bold text-4xl">Editing config</h1>
+    </div>
+
+    <%= render "form", config: @config, coach: @coach %>
+  </div>
+
+  <div class="mt-2">
+    <%= link_to t('.back_to_coach'), edit_coach_path(@coach), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to t('.destroy'), coach_config_path(@coach, @config), method: :delete, class: "mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium" %>
+    </div>
+  </div>
+</div>

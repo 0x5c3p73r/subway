@@ -1,0 +1,76 @@
+<div id="<%= dom_id coach %>" class="border-t border-gray-200">
+  <dl>
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Name</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <%= coach.name %>
+      </dd>
+    </div>
+
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Permalink</dt>
+      <dd class="mt-1 text-sm text-blue-600 sm:col-span-2 sm:mt-0">
+        <%= link_to short_url(coach.id), short_url(coach.id), target: "_blank" %>
+      </dd>
+    </div>
+
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Subscribe Urls</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+          <% coach.subscribes.each do |subscribe| %>
+          <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+            <div class="flex w-0 flex-1 items-center">
+              <span class="ml-2 w-0 flex-1 truncate"><%= subscribe.name %></span>
+              <span class="ml-2 w-0 flex-1 truncate text-gray-400"> <%= time_ago_in_words(subscribe.created_at) %> ago</span>
+            </div>
+            <div class="ml-4 flex-shrink-0">
+              <%= link_to t('.view'), subscribe.link, target: "_blank", class: "font-medium text-indigo-600 hover:text-indigo-500"  %>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </dd>
+    </div>
+
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Target</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <%= target(coach.target) %>
+      </dd>
+    </div>
+
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Config Url</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <% if coach.config.present? %>
+          <p class="font-medium"><%= coach.config.name %><p>
+          <p class="mt-1 text-sm text-blue-600 sm:col-span-2 sm:mt-0 break-all">
+            <%= link_to coach.config.link, coach.config.link %>
+          <p>
+        <% else %>
+          <%= t('.blank') %>
+        <% end %>
+      </dd>
+    </div>
+
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Backend Url</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+        <p class="font-medium"><%= coach.backend.name %> <%= coach.backend.version %><p>
+        <p class="mt-1 text-sm sm:col-span-2 sm:mt-0 break-all">
+          <%= coach.backend.link %>
+        <p>
+      </dd>
+    </div>
+
+    <% if params[:preview] == 'true' %>
+    <div class="border-t border-gray-200 bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Subconverter Url</dt>
+      <dd class="mt-1 text-sm text-blue-600 sm:col-span-2 sm:mt-0 break-all">
+        <%= link_to coach.subconverter_url, coach.subconverter_url %>
+      </dd>
+    </div>
+    <% end %>
+  </dl>
+</div>

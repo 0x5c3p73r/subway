@@ -1,0 +1,42 @@
+{
+  "name": "Subway Development Codespace",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  // "build": {
+  //   "dockerfile": "Dockerfile.dev",
+  //   "context": "../"
+  // },
+
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "aki77.rails-db-schema",
+		"castwide.solargraph",
+		"kaiwood.endwise",
+		"koichisasada.vscode-rdbg",
+		"rebornix.ruby",
+		"redhat.vscode-yaml",
+
+    "editorconfig.editorconfig"
+    // "misogi.ruby-rubocop",
+    // "wingrunr21.vscode-ruby"
+  ],
+
+  // "postCreateCommand": "bundle install"
+
+  "forwardPorts": [3000, 25500],
+
+  "portsAttributes": {
+    "3000": {
+      "label": "Rails Server"
+    },
+    "25500": {
+      "label": "Subconverter API Server"
+    }
+  }
+}

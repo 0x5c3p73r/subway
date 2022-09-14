@@ -1,0 +1,8 @@
+development:
+  url: <%= ENV.fetch("DATABASE_URL") { "postgresql://localhost:/subway_development?pool=5" } %>
+
+test:
+  url: <%= ENV.fetch("DATABASE_URL") { "postgresql://localhost/subway_test?pool=5" } %>
+
+production:
+  url: <%= ENV.fetch("DATABASE_URL") { "postgresql://localhost/subway?pool=5" } %>

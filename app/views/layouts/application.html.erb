@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subway</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-200">
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="flex flex-1 items-left justify-left sm:items-stretch sm:justify-start">
+            <div class="flex flex-shrink-0">
+              <div class="text-white">
+                <%= link_to 'Subway', root_path %>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <%= link_to t('.github'), "https://github.com/0x5c3p73r/subway", class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto mt-10 max-w-6xl">
+      <%= yield %>
+    </main>
+  </body>
+</html>

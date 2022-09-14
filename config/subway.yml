@@ -1,0 +1,37 @@
+# Inspired from https://github.com/youshandefeiyang/sub-web-modify/blob/master/src/views/Subconverter.vue
+default: &default
+  backend:
+    - name: 肥羊增强型【vless+负载均衡】
+      link: https://api.v1.mk
+    - name: 肥羊备用【vless+负载均衡】
+      link: https://sub.d1.mk
+    - name: つつ-多地防失联【负载均衡+国内优化】
+      link: https://api.tsutsu.one
+    - name: 品云【实验性】
+      link: https://v.id9.cc
+    - name: nameless13
+      link: https://www.nameless13.com
+    - name: dler cloud
+      link: https://api.dler.io
+    - name: sub-web
+      link: https://api.wcc.best
+    - name: subconverter
+      link: https://sub.xeton.dev/
+  config:
+    - name: lhie1 洞主规则完整版
+      link: https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/lhie1_dler.ini
+    - name: lhie1 洞主规则（使用 Clash 分组规则）
+      link: https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/lhie1_clash.ini
+    - name: NaNoport
+      link: https://gist.github.com/jklolixxs/32d4e9a1a5d18a92beccf3be434f7966/raw/NaNoport.ini
+    - name: ACL (默认规则)
+      link: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
