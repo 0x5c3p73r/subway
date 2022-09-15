@@ -50,7 +50,7 @@ RUN rm -rf docker tmp/cache spec .devcontainer .github .gitignore .gitattributes
 
 ##################################################################################
 
-FROM ruby:${VARIANT}
+FROM ruby:${VARIANT}-slim
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -60,7 +60,7 @@ ARG REPLACE_CHINA_MIRROR="true"
 ARG ORIGINAL_REPO_URL="deb.debian.org"
 ARG MIRROR_REPO_URL="mirrors.ustc.edu.cn"
 ARG RUBYGEMS_SOURCE="https://gems.ruby-china.com/"
-ARG PROJECT_PACKAGES="openssl tzdata git postgresql-client"
+ARG PROJECT_PACKAGES="openssl tzdata git postgresql-client xz-utils"
 ARG RUBY_GEMS="bundler:2.3.7"
 ARG RAILS_SERVE_STATIC_FILES=true
 ARG APP_ROOT=/app
@@ -90,6 +90,9 @@ RUN set -ex && \
       bundle config mirror.https://rubygems.org $RUBYGEMS_SOURCE; \
     fi && \
     apt-get update -qq && apt-get install -y $PROJECT_PACKAGES && \
+    apt-get clean autoclean && \
+    apt-get autoremove --yes && \
+    rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
     gem install -N $RUBY_GEMS
 
 ARG S6_OVERLAY_VERSION="3.1.2.1"

@@ -1,4 +1,5 @@
 class Subscribe < ApplicationRecord
+  encrypts :name
   encrypts :link, deterministic: true
 
   has_many :coach_subscribes

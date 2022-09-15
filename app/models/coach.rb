@@ -28,6 +28,8 @@ class Coach < ApplicationRecord
   has_many :coach_subscribes
   has_many :subscribes, through: :coach_subscribes
 
+  encrypts :name
+  encrypts :description
   enum target: TARGETS.keys
 
   validates :subscribes, presence: true

@@ -4,6 +4,7 @@ class Backend < ApplicationRecord
   has_many :coach_backends
   has_many :coaches, through: :coach_backends
 
+  encrypts :name
   encrypts :link, deterministic: true
 
   scope :all_system, -> { where(source: :system) }

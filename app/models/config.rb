@@ -1,4 +1,5 @@
 class Config < ApplicationRecord
+  encrypts :name
   encrypts :link, deterministic: true
 
   scope :all_system, -> { where(source: :system) }
