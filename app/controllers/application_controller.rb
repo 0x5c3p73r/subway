@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   rescue_from Encryptor::NotMatchedError, with: :unauthorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActiveRecord::Encryption::Errors::Decryption, with: :internal_server_error
+  rescue_from URI::InvalidURIError, ActiveRecord::NotNullViolation, with: :not_accepted
 
   protected
 
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
 
   def internal_server_error(exception)
     error_handler(500, exception.message)
+  end
+
+  def not_accepted(exception)
+    error_handler(406, exception.message)
   end
 
   def error_handler(code, message = nil)

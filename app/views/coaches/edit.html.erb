@@ -1,16 +1,10 @@
 <%= render "layouts/page_title", title: t('.title') %>
 
-<div class="mx-auto">
-  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-      <div class="relative flex items-center justify-between">
-        <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t('.title') %></h3>
-      </div>
-      <p class="mt-1 text-sm text-gray-600">
-      <%= raw t('.subtitle_html') %>
-      </p>
-    </div>
-
-    <%= render "edit_form", coach: @coach %>
+<div class="overflow-hidden bg-white shadow sm:rounded-lg dark:bg-gray-700 dark:border-gray-600">
+  <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-600">
+    <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200"><%= t('.title') %></h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-slate-400"><%= raw t('.subtitle_html') %></p>
   </div>
+
+  <%= render "edit_form", coach: @coach %>
 </div>

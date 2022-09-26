@@ -20,7 +20,24 @@ zh-CN:
       ticket_number: Ticket No.
       blank_config: 不使用自定义配置
       edit: 编辑
+      back_to_coach: 返回
       cancel: 取消
+
+  backends:
+    edit:
+      title: 修改后端地址
+      destroy: 删除
+
+  configs:
+    edit:
+      title: 修改配置文件地址
+      destroy: 删除
+
+  subscribes:
+    edit:
+      title: 修改订阅地址或单节点地址
+      destroy: 删除
+
   encrypted_data:
     index:
       title: 加密信息生成器
@@ -28,6 +45,36 @@ zh-CN:
       # encryped_data:
       raw_data: 原始数据
       generate: 生成
+
+  activerecord:
+    models:
+      subscribe: 订阅地址
+      config: 配置地址
+      backend: 后端地址
+    errors:
+      default: 发生 %{count} 个错误，请检查如下设置：
+
+    attributes:
+      coach:
+        subscribes: 订阅地址
+      backend:
+        name: 显示名称
+        link: 地址
+      config:
+        name: 显示名称
+        link: 地址
+      subscribe:
+        name: 显示名称
+        link: 地址
+
+  errors:
+    messages:
+      blank: 不能为空
+
+  messages:
+    update:
+      notice: "Message was successfully updated."
+      alert: "Unable to update message."
 
   helpers:
     select:
@@ -38,7 +85,7 @@ zh-CN:
         name: 车厢名称
         description: 描述信息
         target: 配置目标
-        subscribe_urls: 订阅地址 URLs
+        subscribe_urls: 订阅地址
         configs: 配置文件 URL
         backends: 后端接口 URL
         subconverter_url: Subconverter URL

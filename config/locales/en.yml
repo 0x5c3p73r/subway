@@ -26,6 +26,13 @@ en:
       # raw_data:
       # generate:
 
+
+  activerecord:
+    errors:
+      default:
+        one: "%{count} error prohibited this coach from being saved:"
+        other: "%{count} errors prohibited this coach from being saved:"
+
   helpers:
     label:
       coach:

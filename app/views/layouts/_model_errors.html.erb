@@ -1,0 +1,10 @@
+<% if model.errors.any? %>
+  <div class="text-red-500 px-3 py-2 font-medium rounded-lg mt-3 mx-5 dark:border dark:border-gray-600 dark:bg-gray-700 dark:text-red-400">
+    <h2><%= t('activerecord.errors.default', count: model.errors.count) %></h2>
+    <ul class="list-decimal list-inside">
+      <% model.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

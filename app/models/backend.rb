@@ -9,6 +9,8 @@ class Backend < ApplicationRecord
 
   scope :all_system, -> { where(source: :system) }
 
+  validates :link, presence: true
+
   before_create :generate_name
   before_create :generate_source
   after_save :perform_version_check
