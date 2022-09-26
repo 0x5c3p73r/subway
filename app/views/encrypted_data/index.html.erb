@@ -1,13 +1,13 @@
 <%= render "layouts/page_title", title: t('.title') %>
 
 <div class="mx-auto">
-  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-      <h1 class="font-bold text-4xl"><%= t('.title') %></h1>
+  <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-600">
+      <h1 class="font-bold text-4xl  dark:text-slate-200"><%= t('.title') %></h1>
     </div>
 
     <div class="sm:overflow-hidden md:gap-6" data-controller="generate-encrypted-data">
-      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+      <div class="space-y-6 px-4 sm:px-6 sm:py-3">
         <div>
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
             <%= t('.master_key') %>
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+      <div class="space-y-6 px-4 sm:px-6 sm:py-3">
         <div>
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
             <%= t('.encryped_data') %>
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
+      <div class="space-y-6 px-4 sm:px-6 sm:py-3">
         <div>
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
             <%= t('.raw_data') %>
@@ -34,8 +34,8 @@
         </div>
       </div>
 
-      <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6">
-        <button data-action="generate-encrypted-data#generate" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6 dark:bg-gray-700 dark:border-t dark:border-gray-600">
+        <button data-action="generate-encrypted-data#generate" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-900 dark:hover:bg-indigo-800">
           <%= t('.generate') %>
         </button>
       </div>
