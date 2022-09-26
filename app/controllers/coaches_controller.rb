@@ -19,7 +19,7 @@ class CoachesController < ApplicationController
         process_config(@coach)
 
         cookies[@coach.ticket_key] = Rails.cache.read(@coach.ticket_key)
-        format.html { redirect_to coach_url(@coach), notice: "Coach was successfully created." }
+        format.html { redirect_to coach_url(@coach, locale: I18n.locale), notice: "Coach was successfully created." }
         format.json { render json: @coach, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class CoachesController < ApplicationController
     process_subscribes(@coach)
     respond_to do |format|
       if @coach.update(coach_params)
-        format.html { redirect_to coach_url(@coach), notice: "Url was successfully updated." }
+        format.html { redirect_to coach_url(@coach, locale: I18n.locale), notice: "Url was successfully updated." }
         format.json { render json: @coach, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class CoachesController < ApplicationController
     @coach.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "Coach was successfully destroyed." }
+      format.html { redirect_to locale_root_url(locale: I18n.locale), notice: "Coach was successfully destroyed." }
       format.json { head :no_content }
     end
   end

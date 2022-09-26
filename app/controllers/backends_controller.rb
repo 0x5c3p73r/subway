@@ -10,7 +10,7 @@ class BackendsController < ApplicationController
   def update
     respond_to do |format|
       if @backend.update(backend_params)
-        format.html { redirect_to edit_coach_url(@coach), notice: "Backend was successfully updated." }
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Backend was successfully updated." }
         format.json { render json: @backend, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -24,7 +24,7 @@ class BackendsController < ApplicationController
     @backend.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_coach_url(@coach), notice: "Backend was successfully destroyed." }
+      format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Backend was successfully destroyed." }
       format.json { head :no_content }
     end
   end

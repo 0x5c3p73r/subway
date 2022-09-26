@@ -3,6 +3,9 @@ zh-CN:
     new:
       title: 定制化车厢
       subtitle: 按照如下条件配置你的车厢
+      english: 英文
+      chinese: 中文
+      github: Github
     show:
       title: 票务信息
       subtitle_html: |

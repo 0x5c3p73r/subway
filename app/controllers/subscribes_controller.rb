@@ -11,7 +11,7 @@ class SubscribesController < ApplicationController
   def update
     respond_to do |format|
       if @subscribe.update(subscribe_params)
-        format.html { redirect_to edit_coach_url(@coach), notice: "Subscribe was successfully updated." }
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Subscribe was successfully updated." }
         format.json { render json: @subscribe, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -26,7 +26,7 @@ class SubscribesController < ApplicationController
     @subscribe.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_coach_url(@coach), notice: "Subscribe was successfully destroyed." }
+      format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Subscribe was successfully destroyed." }
       format.json { head :no_content }
     end
   end

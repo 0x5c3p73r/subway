@@ -1,4 +1,4 @@
-<%= form_with(model: coach, class: "contents") do |form| %>
+<%= form_with(model: coach, url: coach_path(coach, locale: I18n.locale), class: "contents") do |form| %>
   <%= render "layouts/model_errors", model: coach %>
 
   <div class="sm:overflow-hidden sm:rounded-md md:gap-6">
@@ -34,7 +34,7 @@
                 <span class="ml-2 w-0 flex-1 truncate"><%= subscribe.name %></span>
               </div>
               <div class="ml-4 flex-shrink-0">
-                <%= link_to t("coaches.edit.edit"), edit_coach_subscribe_path(coach, subscribe), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
+                <%= link_to t("coaches.edit.edit"), edit_coach_subscribe_path(coach, subscribe, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
               </div>
             </li>
             <% end %>
@@ -81,7 +81,7 @@
               </div>
               <div class="ml-4 flex-shrink-0">
                   <% if (config = Config.find(r.value)) && config.customer? %>
-                    <%= link_to t("coaches.edit.edit"), edit_coach_config_path(coach, config), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
+                    <%= link_to t("coaches.edit.edit"), edit_coach_config_path(coach, config, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
                   <% end %>
                 </div>
               </li>
@@ -98,7 +98,7 @@
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
           <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-600 rounded-md border border-gray-200 dark:border-gray-600">
-            <%= form.collection_radio_buttons :backends, coach.avaiable_backends, :id, :name do |r| %>
+            <%= form.collection_radio_buttons :backends, coach.avaiable_backends, :id, :name_with_version do |r| %>
             <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
               <div class="flex w-0 flex-1 items-center">
                 <%= r.radio_button(checked: r.value == coach.backend.id, class: "h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500") %>
@@ -108,7 +108,7 @@
               </div>
               <div class="ml-4 flex-shrink-0">
                 <% if (backend = Backend.find(r.value)) && backend.customer? %>
-                  <%= link_to t("coaches.edit.edit"), edit_coach_backend_path(coach, backend), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
+                  <%= link_to t("coaches.edit.edit"), edit_coach_backend_path(coach, backend, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
                 <% end %>
               </div>
             </li>
@@ -122,7 +122,7 @@
   </div>
 
   <div class="bg-gray-100 dark:bg-gray-700 dark:border-t dark:border-gray-600 mt-3 px-4 py-3 text-right sm:px-6">
-    <%= link_to t("coaches.edit.cancel"), coach_path(coach), class: "cursor-pointer mt-2 mx-2 rounded-md py-2 px-4 px-5 bg-gray-100 inline-block font-medium hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500" %>
+    <%= link_to t("coaches.edit.cancel"), coach_path(coach, locale: I18n.locale), class: "cursor-pointer mt-2 mx-2 rounded-md py-2 px-4 px-5 bg-gray-100 inline-block font-medium hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500" %>
     <%= form.submit class: "cursor-pointer inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" %>
   </div>
 <% end %>

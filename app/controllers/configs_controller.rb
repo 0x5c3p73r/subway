@@ -10,7 +10,7 @@ class ConfigsController < ApplicationController
   def update
     respond_to do |format|
       if @config.update(config_params)
-        format.html { redirect_to edit_coach_url(@coach), notice: "Config was successfully updated." }
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Config was successfully updated." }
         format.json { render json: @config, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -25,7 +25,7 @@ class ConfigsController < ApplicationController
     @config.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_coach_url(@coach), notice: "Config was successfully destroyed." }
+      format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Config was successfully destroyed." }
       format.json { head :no_content }
     end
   end

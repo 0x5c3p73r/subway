@@ -19,9 +19,9 @@
   </div>
 
   <div class="mt-2">
-    <%= link_to t('.customize'), edit_coach_path(@coach), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500" %>
+    <%= link_to t('.customize'), edit_coach_path(@coach, locale: I18n.locale), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500" %>
     <div class="inline-block ml-2">
-      <%= button_to t('.destroy'), coach_path(@coach), method: :delete, class: "mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium dark:bg-red-500 dark:hover:bg-red-400" %>
+      <%= button_to t('.destroy'), coach_path(@coach, locale: I18n.locale), method: :delete, class: "mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium dark:bg-red-500 dark:hover:bg-red-400" %>
     </div>
   </div>
 </div>

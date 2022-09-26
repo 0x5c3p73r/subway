@@ -1,4 +1,4 @@
-<%= form_with(model: backend, url: coach_backend_path(coach, backend), class: "contents") do |form| %>
+<%= form_with(model: backend, url: coach_backend_path(coach, backend, locale: I18n.locale), class: "contents") do |form| %>
   <%= render "layouts/model_errors", model: backend %>
 
   <div class="sm:overflow-hidden md:gap-6">

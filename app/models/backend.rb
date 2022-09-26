@@ -23,6 +23,10 @@ class Backend < ApplicationRecord
     !system?
   end
 
+  def name_with_version
+    "#{name} - #{version}"
+  end
+
   def subconverter_url
     File.join(link, "sub")
   end

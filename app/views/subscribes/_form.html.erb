@@ -1,4 +1,4 @@
-<%= form_with(model: subscribe, url: coach_subscribe_path(coach, subscribe), class: "contents") do |form| %>
+<%= form_with(model: subscribe, url: coach_subscribe_path(coach, subscribe, locale: I18n.locale), class: "contents") do |form| %>
   <%= render "layouts/model_errors", model: subscribe %>
 
   <div class="sm:overflow-hidden md:gap-6">

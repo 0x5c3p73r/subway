@@ -10,9 +10,9 @@
   </div>
 
   <div class="mt-2 ">
-  <%= link_to t('coaches.edit.back_to_coach'), edit_coach_path(@coach), class: "cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium dark:bg-gray-700 dark:text-white" %>
+  <%= link_to t('coaches.edit.back_to_coach'), edit_coach_path(@coach, locale: I18n.locale), class: "cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium dark:bg-gray-700 dark:text-white" %>
     <div class="inline-block ml-2">
-      <%= button_to t('.destroy'), coach_backend_path(@coach, @backend), method: :delete, class: "cursor-pointer mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium dark:bg-red-500" %>
+      <%= button_to t('.destroy'), coach_backend_path(@coach, @backend, locale: I18n.locale), method: :delete, class: "cursor-pointer mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium dark:bg-red-500" %>
     </div>
   </div>
 </div>
