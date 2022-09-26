@@ -9,7 +9,7 @@ class Backend < ApplicationRecord
 
   scope :all_system, -> { where(source: :system) }
 
-  validates :link, presence: true
+  validates :link, presence: true, url: true
 
   before_create :generate_name
   before_create :generate_source

@@ -1,5 +1,5 @@
 <%= form_with(model: config, url: coach_config_path(coach, config), class: "contents") do |form| %>
-
+  <%= render "layouts/model_errors", model: config %>
 
   <div class="sm:overflow-hidden md:gap-6">
     <div class="space-y-6 px-4 sm:px-6 sm:py-3">

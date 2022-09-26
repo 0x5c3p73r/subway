@@ -7,6 +7,8 @@ class Config < ApplicationRecord
   has_many :coach_configs
   has_many :coaches, through: :coach_configs
 
+  validates :link, presence: true, url: true
+
   before_create :generate_name
   before_create :generate_source
 

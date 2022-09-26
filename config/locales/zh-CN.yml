@@ -53,6 +53,11 @@ zh-CN:
       backend: 后端地址
     errors:
       default: 发生 %{count} 个错误，请检查如下设置：
+      models:
+        subscribe:
+          attributes:
+            link:
+              url: 链接格式错误，接受遵循 URI 格式且协议头为 HTTP/HTTPS/SS/SSR/VMESS/TROJAN
 
     attributes:
       coach:

@@ -17,6 +17,7 @@ gem "tailwindcss-rails"
 # Database
 gem "pg"
 
+gem 'validate_url', '1.0.15'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
