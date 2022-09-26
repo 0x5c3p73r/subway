@@ -17,7 +17,6 @@ zh-CN:
       subtitle_html: |
         <span class="font-bold">为保证用户隐私安全，数据均加密处理，可放心定制化。</span>
         定制化后的外部分享地址不会发生任何改变。
-      ticket_number: Ticket No.
       blank_config: 不使用自定义配置
       edit: 编辑
       back_to_coach: 返回

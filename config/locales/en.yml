@@ -11,12 +11,25 @@ en:
         You won’t be able to see it again!
       ticket_number: Ticket No.
       customize: Customize
-      destroy: Destroy
+      destroy: Destroy ticket and all data
     edit:
       title: Customize coach
       subtitle_html: |
         Use ticket to custormize this coach.
-        <span class="font-bold">Make sure to copy your ticket now.</span>\
+        <span class="font-bold">Make sure to copy your ticket now.</span>
+      blank_config: Blank
+
+  backends:
+    edit:
+      title: Edit Backend URL
+
+  configs:
+    edit:
+      title: Edit Config URL
+
+  subscribes:
+    edit:
+      title: Edit Subscribe or Node URL
 
   encrypted_data:
     index:
@@ -26,12 +39,16 @@ en:
       # raw_data:
       # generate:
 
-
   activerecord:
     errors:
       default:
         one: "%{count} error prohibited this coach from being saved:"
         other: "%{count} errors prohibited this coach from being saved:"
+      models:
+        subscribe:
+          attributes:
+            link:
+              url: is not a valid URL, accepts HTTP/HTTPS/SS/SSR/VMESS/TROJAN scheme only.
 
   helpers:
     label:
@@ -43,7 +60,7 @@ en:
 
     placeholder:
       coach:
-        name: Name to remembe this rule
+        name: Name to remembe this coach
         description: Add more description
         subscribe_urls: |
           Please make sure one link or node per line for multiple subscriptions;

@@ -23,7 +23,7 @@ module Subway
     config.load_defaults 7.0
 
     config.i18n.default_locale = ENV.fetch("DEFAULT_LOCALE", "en").to_sym
-    config.i18n.fallbacks = [:en, :"zh-CN"]
+    config.i18n.fallbacks = [:en]
 
     # Configuration for the application, engines, and railties goes here.
     #
