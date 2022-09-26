@@ -1,6 +1,8 @@
 # 🚉 Subway
 
-Take a train, way to home. Best solution for subconverter.
+You're waiting for a train, a train that will take you far away.
+You know where you hope this train will take you, but you don't know for sure. But it doesn't matter.
+How can it not matter to you where that train will take you? Because you'll be together.
 
 ![Intro](docs/assets/images/intro.png)
 
