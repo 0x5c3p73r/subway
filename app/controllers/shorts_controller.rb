@@ -23,12 +23,7 @@ class ShortsController < ApplicationController
   end
 
   def subscriber_params
-    params.permit(
-      :target, :url, :group, :upload_path, :include, :exclude, :config,
-      :dev_id, :filename, :interval, :rename, :filter_script, :strict,
-      :upload, :emoji, :add_emoji, :remove_emoji, :append_type, :tfo,
-      :udp, :list, :sort, :sort_script, :script, :insert, :scv, :fdn,
-      :expand, :append_info, :prepend, :classic, :tls13, :new_name
-    )
+    all_keys = params.keys.map(&:to_sym)
+    params.permit(all_keys)
   end
 end
