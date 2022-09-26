@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  # mount GoodJob::Engine => 'good_job'
+  if ENV["ENABLE_DASHBOARD"] == "true" || Rails.env.development?
+    mount GoodJob::Engine => 'dashboard'
+  end
 
   root "coaches#new"
 end

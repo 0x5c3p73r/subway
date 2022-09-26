@@ -5,14 +5,15 @@ Rails.application.configure do
     preserve_job_records: false,
     cleanup_preserved_jobs_before_seconds_ago: 1.day.to_i,
     cleanup_interval_jobs: 100,
-    cleanup_interval_seconds: 10.minutes.to_i
+    cleanup_interval_seconds: 10.minutes.to_i,
 
-    # enable_cron: true,
-    # cron: {
-    #   example: {
-    #     cron: '0 * * * *',
-    #     class: 'ExampleJob'
-    #   },
-    # },
+    enable_cron: true,
+    cron: {
+      syncing_backend_version: {
+        cron: '0 */5 * * *',
+        class: 'BackendVersionCheckerJob',
+        description: 'Syncing and storing subconverter api version'
+      }
+    }
   }
 end
