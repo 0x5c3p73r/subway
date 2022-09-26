@@ -2,7 +2,7 @@
 
 你在等待一列地铁，那列地铁将带你远去。你知道自己希望被带到哪里，但却不知道将被带到何处。但这并不重要。地铁将带你去哪里怎么会不重要呢？因为我们会在一起。
 
-![Intro](docs/assets/images/intro.png)
+![Intro](https://raw.githubusercontent.com/0x5c3p73r/subway/main/docs/assets/images/intro.png)
 
 ## 服务承诺
 
