@@ -7,6 +7,7 @@ namespace :subway do
     else
       Rake::Task['db:migrate'].invoke
     end
+    Rake::Task['db:seed'].invoke
   end
 
   task :credentials do
