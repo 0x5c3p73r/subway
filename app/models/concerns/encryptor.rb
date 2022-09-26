@@ -1,6 +1,6 @@
 # Inspried from https://gist.github.com/wteuber/5318013
 
-require 'openssl'
+require "openssl"
 
 module Encryptor
   extend ActiveSupport::Concern
@@ -10,7 +10,7 @@ module Encryptor
   def generate_key(salt:, length: 8)
     length = 8 if length < 6
     key = Digest::MD5.hexdigest(salt)
-    Digest::SHA1.base64digest(key).gsub(%r{[+\/=]}, '')[0..(length - 1)]
+    Digest::SHA1.base64digest(key).gsub(%r{[+\/=]}, "")[0..(length - 1)]
   end
 
   def encrypt(raw, private_key)
@@ -18,7 +18,7 @@ module Encryptor
     cipher.key = encoded_private_key(private_key, length: 24)
     s = cipher.update(raw) + cipher.final
 
-    s.unpack('H*')[0].upcase
+    s.unpack("H*")[0].upcase
   end
 
   def decrypt(private_key)

@@ -7,6 +7,6 @@ class ApplicationService
   end
 
   def call(**args)
-    raise 'Not implements'
+    raise "Not implements"
   end
 end

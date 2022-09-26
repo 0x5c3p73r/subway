@@ -1,0 +1,60 @@
+zh-CN:
+  coaches:
+    new:
+      title: 定制化车厢
+      subtitle: 按照如下条件配置你的车厢
+    show:
+      title: 票务信息
+      subtitle_html: |
+        右边是你的 🎫 票据信息，
+        <span class="font-bold text-red-800">离开当前页面你之后将无法在看到此信息</span>，请妥善保存。
+      ticket_number: 车票
+      view: 查看
+      customize: 调整个性化
+      destroy: 销毁票据和所有数据
+    edit:
+      title: 重新个性化
+      subtitle_html: |
+        <span class="font-bold">为保证用户隐私安全，数据均加密处理，可放心定制化。</span>
+        定制化后的外部分享地址不会发生任何改变。
+      ticket_number: Ticket No.
+      blank_config: 不使用自定义配置
+      edit: 编辑
+      cancel: 取消
+  encrypted_data:
+    index:
+      title: 加密信息生成器
+      # master_key:
+      # encryped_data:
+      raw_data: 原始数据
+      generate: 生成
+
+  helpers:
+    select:
+      prompt: "- 请选择 -"
+
+    label:
+      coach:
+        name: 车厢名称
+        description: 描述信息
+        target: 配置目标
+        subscribe_urls: 订阅地址 URLs
+        configs: 配置文件 URL
+        backends: 后端接口 URL
+        subconverter_url: Subconverter URL
+        permalink: 订阅唯一地址
+
+    placeholder:
+      coach:
+        name: 标识当前车厢
+        description: 补充个性化车厢的描述信息
+        subscribe_urls: |
+          多订阅链接或节点请确保每行一条
+          支持手动使用 "|" 分割多链接或节点
+        custom_config: 自定义配置文件 URL，填写后会覆盖上面配置选项的值
+        custom_backend: 自定义后端接口 URL，填写后会覆盖上面配置选项的值
+
+    submit:
+      coach:
+        create: 生成
+        update: 更新

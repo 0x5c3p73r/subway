@@ -15,7 +15,7 @@
     <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
       <div>
         <%= form.label :subscribe_urls, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
-        <%= form.text_area :subscribe_urls, rows: 3, value: params.try(:[], :coach).try(:[], :subscribe_urls), placeholder: "One subscribe url per line, or use `|` vertical key to split multiple urls.", class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= form.text_area :subscribe_urls, rows: 3, value: params.try(:[], :coach).try(:[], :subscribe_urls), placeholder: true, class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
       <div>
         <%= form.label :configs, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
         <%= form.collection_select :configs, system_configs, :id, :name, { prompt: true }, { class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" } %>
-        <%= form.url_field :custom_config, placeholder: "Custom config url, fill to overwrite above selected", class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= form.url_field :custom_config, placeholder: true, class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       </div>
     </div>
 
@@ -38,14 +38,14 @@
       <div>
         <%= form.label :backends, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
         <%= form.collection_select :backends, system_backends, :id, :name, { include_blank: false }, { class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" } %>
-        <%= form.url_field :custom_backend, placeholder: "Custom backend url, fill to overwrite above selected", class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= form.url_field :custom_backend, placeholder: true, class: "mt-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       </div>
     </div>
 
     <div class="space-y-6 bg-white px-4 sm:px-6 sm:py-3">
       <div>
         <%= form.label :name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" %>
-        <%= form.text_field :name, placeholder: 'Name to remembe this rule', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= form.text_field :name, placeholder: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
       </div>
     </div>
 

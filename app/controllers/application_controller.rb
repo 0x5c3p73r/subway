@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       return cookies[@coach.ticket_key] ||= @ticket
     end
 
-    raise Encryptor::NotMatchedError, 'Invalid ticket'
+    raise Encryptor::NotMatchedError, "Invalid ticket"
   end
 
   def not_found(exception)

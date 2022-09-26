@@ -12,6 +12,9 @@ services:
       # Only support postgresql database
       DATABASE_URL: postgres://postgres:postgres@db/postgres
 
+      # configure i18n
+      DEFAULT_LOCALE: zh-CN
+
       # Optinal, set a alias name, unless use host as backend name.
       # LOCAL_BACKEND_NAME: local-api
       LOCAL_BACKEND_URL: http://localhost:25500

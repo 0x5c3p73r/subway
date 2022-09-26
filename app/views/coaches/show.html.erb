@@ -1,14 +1,17 @@
+<%= render "layouts/page_title", title: t('.title') %>
+
 <div class="mx-auto">
   <div class="overflow-hidden bg-white shadow sm:rounded-lg">
     <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
       <div class="relative flex items-center justify-between">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Take your ticket</h3>
-        <p class="p-2 rounded-lg mt-1 text-sm text-gray-100 border border-gray-300 bg-gray-800"><%= @ticket %></p>
+        <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t('.title') %></h3>
+        <div class="text-sm flex">
+          <span class="py-1 px-1.5 bg-gray-800 text-slate-200 rounded-l-lg"><%= t('.ticket_number') %></span>
+          <span class="py-1 px-1.5 bg-indigo-600 text-slate-200 rounded-r-lg"><%= @ticket %></span>
+        </div>
       </div>
       <p class="mt-1 text-sm text-gray-600">
-      Use ticket to custormize this coach.
-      <span class="font-bold">Make sure to copy your ticket now.</span>
-      You won’t be able to see it again!
+      <%= raw t('.subtitle_html') %>
       </p>
     </div>
 
@@ -18,7 +21,7 @@
   <div class="mt-2">
     <%= link_to t('.customize'), edit_coach_path(@coach), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to t('.destroy_ticket'), coach_path(@coach), method: :delete, class: "mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium" %>
+      <%= button_to t('.destroy'), coach_path(@coach), method: :delete, class: "mt-2 rounded-lg py-3 px-5 text-white bg-red-600 font-medium" %>
     </div>
   </div>
 </div>

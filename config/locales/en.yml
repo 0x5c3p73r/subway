@@ -1,36 +1,49 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
+  coaches:
+    new:
+      title: Get your coach
+      subtitle: Make the url to be the one, no matter how you modify it.
+    show:
+      title: Coach Information
+      subtitle_html: |
+        The ticket number is show in right side.
+        <span class="font-bold">Make sure to copy your ticket now.</span>
+        You won’t be able to see it again!
+      ticket_number: Ticket No.
+      customize: Customize
+      destroy: Destroy
+    edit:
+      title: Customize coach
+      subtitle_html: |
+        Use ticket to custormize this coach.
+        <span class="font-bold">Make sure to copy your ticket now.</span>\
+
+  encrypted_data:
+    index:
+      title: Generate encrypted data
+      # master_key:
+      # encryped_data:
+      # raw_data:
+      # generate:
+
   helpers:
+    label:
+      coach:
+        subscribe_urls: Subscribe URLs
+        configs: Config URL
+        backends: Backend URL
+        subconverter_url: Subconverter URL
+
+    placeholder:
+      coach:
+        name: Name to remembe this rule
+        description: Add more description
+        subscribe_urls: |
+          Please make sure one link or node per line for multiple subscriptions;
+          Support manual use of "|" to split multiple links or nodes.
+        custom_config: Custom config url, fill to overwrite above selected
+        custom_backend: Custom backend url, fill to overwrite above selected
+
     submit:
       coach:
         create: Generate

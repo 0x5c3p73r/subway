@@ -93,13 +93,13 @@ class Coach < ApplicationRecord
 
   def clear_enabled_system_backends!
     coach_backends.each do |cb|
-      cb.destroy if cb.backend.source == 'system'
+      cb.destroy if cb.backend.source == "system"
     end
   end
 
   def clear_enabled_system_configs!
     coach_configs.each do |cc|
-      cc.destroy if cc.config.source == 'system'
+      cc.destroy if cc.config.source == "system"
     end
   end
 
@@ -112,7 +112,7 @@ class Coach < ApplicationRecord
 
     uri = URI.parse(backend.subconverter_url)
     query = target_params(new_target)
-    query[:new_field_name] = true if query[:target] == 'clash' # Nobody use legacy clash version?
+    query[:new_field_name] = true if query[:target] == "clash" # Nobody use legacy clash version?
     query[:url] = subscribes_urls
     query[:config] = config.link if config
     query[:filename] = id
@@ -124,7 +124,7 @@ class Coach < ApplicationRecord
 
   def fetch_content(overwrite_params = {})
     res = fetch(subconverter_url(overwrite_params))
-    raise 'Can not request content from subconverter api' unless res.is_a?(Net::HTTPSuccess)
+    raise "Can not request content from subconverter api" unless res.is_a?(Net::HTTPSuccess)
 
     res.body
   end
@@ -136,7 +136,7 @@ class Coach < ApplicationRecord
   private
 
   def target_params(new_target)
-    return { target: new_target } unless new_target.start_with?('surgev')
+    return { target: new_target } unless new_target.start_with?("surgev")
 
     surge_version = new_target[-2..-1]
     {
@@ -146,7 +146,7 @@ class Coach < ApplicationRecord
   end
 
   def subscribes_urls
-    subscribes.select(:link).map(&:link).join('|')
+    subscribes.select(:link).map(&:link).join("|")
   end
 
   def generate_name

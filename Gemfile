@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Rails Core
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem 'rails-i18n', '7.0.5'
 gem "puma", "~> 5.0"
 gem "good_job"
 

@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.good_job = {
-    queues: '*',
+    queues: "*",
     max_threads: 5,
     preserve_job_records: false,
     cleanup_preserved_jobs_before_seconds_ago: 1.day.to_i,
@@ -10,9 +10,9 @@ Rails.application.configure do
     enable_cron: true,
     cron: {
       syncing_backend_version: {
-        cron: '0 */5 * * *',
-        class: 'BackendVersionCheckerJob',
-        description: 'Syncing and storing subconverter api version'
+        cron: "0 */5 * * *",
+        class: "BackendVersionCheckerJob",
+        description: "Syncing and storing subconverter api version"
       }
     }
   }

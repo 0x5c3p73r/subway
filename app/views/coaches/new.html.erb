@@ -1,7 +1,9 @@
+<%= render "layouts/page_title", title: t('.title') %>
+
 <div class="overflow-hidden bg-white shadow sm:rounded-lg">
   <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
-    <h3 class="text-lg font-medium leading-6 text-gray-900">Get your coach</h3>
-    <p class="mt-1 max-w-2xl text-sm text-gray-500">Make the url to be the one, no matter how you modify it.</p>
+    <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t('.title') %></h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500"><%= t('.subtitle') %></p>
   </div>
 
   <%= render "new_form", coach: @coach %>
