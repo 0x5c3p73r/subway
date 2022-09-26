@@ -17,5 +17,12 @@ class CreateSystemDataService < ApplicationService
         m.source = :system
       end
     end
+
+    if (local_backend = ENV['LOCAL_BACKEND_URL']) && local_backend.present?
+      Backend.find_or_create_by(link: local_backend) do |m|
+        m.name = 'local'
+        m.source = :system
+      end
+    end
   end
 end
