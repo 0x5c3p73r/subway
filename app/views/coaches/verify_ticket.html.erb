@@ -1,0 +1,33 @@
+<%= render "layouts/page_title", title: t('.title') %>
+
+<div class="mx-auto mt-10 max-w-6xl">
+  <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-600">
+      <h1 class="font-bold text-4xl dark:text-slate-200"><%= t('.title') %></h1>
+    </div>
+
+    <div class="space-y-6 px-4 sm:px-6 sm:py-3">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
+          <%= t('.coach_id') %>
+        </label>
+        <textarea rows="5" data-generate-encrypted-data-target="encrypedData" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></textarea>
+      </div>
+    </div>
+
+    <div class="space-y-6 px-4 sm:px-6 sm:py-3">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" for="coach_subscribe_urls">
+          <%= t('.ticket_number') %>
+        </label>
+        <textarea rows="5" data-generate-encrypted-data-target="rawData" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></textarea>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 mt-6 px-4 py-3 text-right sm:px-6 dark:bg-gray-700 dark:border-t dark:border-gray-600">
+      <button data-action="generate-encrypted-data#generate" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-900 dark:hover:bg-indigo-800">
+        <%= t('.submit') %>
+      </button>
+    </div>
+  </div>
+</div>

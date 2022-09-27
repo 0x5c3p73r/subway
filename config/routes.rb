@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   scope "(:locale)"  do
-    root "coaches#new", as: :locale_root
+    root "coaches#index", as: :locale_root
 
     resources :coaches do
+      collection do
+        get :verify_ticket
+      end
+
       resources :subscribes, only: %i[ edit update :destroy ]
       resources :configs, only: %i[ edit update :destroy ]
       resources :backends, only: %i[ edit update :destroy ]

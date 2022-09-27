@@ -1,8 +1,50 @@
 en:
   coaches:
+    index:
+      slogan: |
+        You're waiting for a train, a train that will take you far away
+      description: |
+        You know where you hope this train will take you, but you don't know for sure. But it doesn't matter.
+        How can it not matter to you where that train will take you? Because you'll be together.
+      how_it_works: How it works
+      how_it_works_step:
+        one:
+          title: Customzie
+          description: Following your style.
+        two:
+          title: Dive in
+          description: Hold the ticket and give on the train.
+        three:
+          title: Run away
+          description: With your own coach to anywhere.
+      features: Features
+      full_features:
+        one:
+          title: 100% Open Source
+          description: Review user's safty.
+        two:
+          title: Encrypt secret data
+          description: less leak from database.
+        three:
+          title: Anonymous ticket
+          description: keep your privacy.
+        four:
+          title: Unqiue URL
+          description: Generate one unqiue url, use anywhere.
+
+    verify_ticket:
+      title: Verify Ticket
+      coach_id: Coach ID
+      ticket_number: Ticket No.
+      submit: Submit
+
     new:
       title: Get your coach
       subtitle: Make the url to be the one, no matter how you modify it.
+      english: English
+      chinese: 简体中文
+      github: Github
+
     show:
       title: Coach Information
       subtitle_html: |
@@ -12,6 +54,7 @@ en:
       ticket_number: Ticket No.
       customize: Customize
       destroy: Destroy ticket and all data
+
     edit:
       title: Customize coach
       subtitle_html: |

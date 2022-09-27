@@ -2,6 +2,12 @@ class CoachesController < ApplicationController
   before_action :set_coach, only: %i[ show edit update destroy ]
   before_action :verify_ticket, only: %i[ show edit update destroy ]
 
+  def index
+  end
+
+  def verify_ticket
+  end
+
   def show
   end
 

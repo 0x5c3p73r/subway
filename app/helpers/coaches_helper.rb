@@ -15,8 +15,4 @@ module CoachesHelper
     key = key.to_sym if key.is_a?(String)
     Coach::TARGETS[key]
   end
-
-  def subway_config
-    @@subway_config ||=Rails.application.config_for(:subway)
-  end
 end

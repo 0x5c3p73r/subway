@@ -1,1 +1,37 @@
 /* Application styles */
+
+/* .bg-underline1 {
+  background-image: url('Underline1.svg');
+} */
+
+/* .bg-left-bottom{
+  background-position: left bottom;
+}
+
+.bg-no-repeat{
+  background-repeat: no-repeat;
+}
+
+.sectionSize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px){
+  .sectionSize{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .sectionSize{
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
+} */

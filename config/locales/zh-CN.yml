@@ -1,11 +1,45 @@
 zh-CN:
   coaches:
+    index:
+      slogan: |
+        你在等待一列地铁，那列地铁将带你远去
+      description: |
+        你知道自己希望被带到哪里，但却不知道将被带到何处。但这并不重要。地铁将带你去哪里怎么会不重要呢？因为我们会在一起
+      create_my_coach: 创建定制化车厢
+      verify_ticket: 验票服务
+      how_it_works: 工作流程
+      how_it_works_step:
+        one:
+          title: 定制化
+          description: 根据环境要求可自由配置
+        two:
+          title: 上车
+          description: 握紧车票，对号入座
+        three:
+          title: 去往远方
+          description: 条条道路通罗马，只需记着这条铁轨
+      features: 新特性
+      full_features:
+        one:
+          title: 100% 开源和自部署
+          description: 保证数据代码安全，每个人都可以随时审查代码的同时，私有化部署也非常友好。
+        two:
+          title: 加密隐私数据
+          description: 个性化配置免不了涉及隐私数据，数据库加密保证隐私不再泄露。
+        three:
+          title: 匿名票据
+          description: 没人知道你在哪里上车，请记好车牌和票根。
+        four:
+          title: 唯一地址
+          description: 生成独立且永不改变的唯一 URL，个性化随时修改。
+
     new:
       title: 定制化车厢
       subtitle: 按照如下条件配置你的车厢
-      english: 英文
-      chinese: 中文
+      english: English
+      chinese: 简体中文
       github: Github
+
     show:
       title: 票务信息
       subtitle_html: |
@@ -15,6 +49,7 @@ zh-CN:
       view: 查看
       customize: 调整个性化
       destroy: 销毁票据和所有数据
+
     edit:
       title: 重新个性化
       subtitle_html: |
