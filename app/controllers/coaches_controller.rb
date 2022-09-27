@@ -1,6 +1,6 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: %i[ show edit update destroy ]
-  before_action :verify_ticket, only: %i[ show edit update destroy ]
+  before_action :set_ticket, only: %i[ show edit update destroy ]
 
   def index
   end
@@ -8,11 +8,11 @@ class CoachesController < ApplicationController
   def verify_ticket
   end
 
-  def show
-  end
-
   def new
     @coach = Coach.new
+  end
+
+  def show
   end
 
   def create
@@ -43,7 +43,7 @@ class CoachesController < ApplicationController
     process_subscribes(@coach)
     respond_to do |format|
       if @coach.update(coach_params)
-        format.html { redirect_to coach_url(@coach, locale: I18n.locale), notice: "Url was successfully updated." }
+        format.html { redirect_to coach_url(@coach, locale: I18n.locale), notice: "Coach was successfully updated." }
         format.json { render json: @coach, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["masterKey", "encrypedData", "rawData"]
 
-  connect() {
-    // this.element.textContent = "Hello World!"
-  }
-
   generate(event) {
     event.target.setAttribute("disabled", "false")
 

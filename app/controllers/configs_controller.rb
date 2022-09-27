@@ -1,6 +1,7 @@
 class ConfigsController < ApplicationController
   before_action :set_coach, only: %i[ edit update destroy ]
   before_action :set_config, only: %i[ edit update destroy ]
+  before_action :set_ticket, only: %i[ edit update destroy ]
 
   # GET /coaches/:coach_id/configs/:id/edit
   def edit

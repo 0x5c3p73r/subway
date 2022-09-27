@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : I18n.default_locale
   end
 
-  def verify_ticket
+  def set_ticket
     @ticket = params[:ticket] || cookies[@coach.ticket_key]
     if @ticket.present? && @coach.encrypt_matches?(@ticket)
       return cookies[@coach.ticket_key] ||= @ticket

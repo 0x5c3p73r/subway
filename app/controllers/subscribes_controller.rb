@@ -1,7 +1,7 @@
 class SubscribesController < ApplicationController
   before_action :set_coach, only: %i[ edit update destroy ]
   before_action :set_subscribe, only: %i[ show edit update destroy ]
-  before_action :verify_ticket, only: %i[ edit update destroy ]
+  before_action :set_ticket, only: %i[ edit update destroy ]
 
   # GET /coach/:coach_id/subscribes/:id/edit
   def edit

@@ -23,8 +23,8 @@
             </div>
           </div>
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <%= link_to t('coaches.new.english'), locale_root_path(locale: :en), class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
-            <%= link_to t('coaches.new.chinese'), locale_root_path(locale: :'zh-CN'), class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to t('coaches.new.english'), url_for(locale: :en), class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to t('coaches.new.chinese'), url_for(locale: :'zh-CN'), class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
             <%= link_to t('coaches.new.github'), "https://github.com/0x5c3p73r/subway", class: "text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
           </div>
         </div>

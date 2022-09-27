@@ -1,6 +1,7 @@
 class BackendsController < ApplicationController
   before_action :set_coach, only: %i[ edit update destroy ]
   before_action :set_backend, only: %i[ edit update destroy ]
+  before_action :set_ticket, only: %i[ edit update destroy ]
 
   # GET /coach/:coach_id/backends/:id/edit
   def edit
