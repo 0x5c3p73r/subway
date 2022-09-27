@@ -1,20 +1,9 @@
 <%= render "layouts/page_title", title: t('.title') %>
 
-<div class="mx-auto mt-10 max-w-6xl ">
-  <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-600">
-      <div class="relative flex items-center justify-between">
-        <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 "><%= t('.title') %></h3>
-        <div class="text-sm flex">
-          <span class="py-1 px-1.5 bg-gray-800 text-slate-200 rounded-l-lg"><%= t('.ticket_number') %></span>
-          <span class="py-1 px-1.5 bg-indigo-600 text-slate-200 rounded-r-lg"><%= @ticket %></span>
-        </div>
-      </div>
-      <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
-      <%= raw t('.subtitle_html') %>
-      </p>
-    </div>
+<div class="mx-auto mt-10 max-w-6xl">
+  <%= render "ticket", coach_id: @coach.id, ticket: @ticket %>
 
+  <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg">
     <%= render "coach", coach: @coach %>
   </div>
 

@@ -33,6 +33,14 @@ zh-CN:
           title: 唯一地址
           description: 生成独立且永不改变的唯一 URL，个性化随时修改。
 
+    verify_ticket:
+      title: 验票服务
+      coach_id: 车厢 ID
+      ticket_number: 票号
+      submit: 提交
+      here_is_coach_id: 这里是车厢 ID
+      here_is_ticket_number: 这里是票号
+
     new:
       title: 定制化车厢
       subtitle: 按照如下条件配置你的车厢
@@ -45,7 +53,10 @@ zh-CN:
       subtitle_html: |
         右边是你的 🎫 票据信息，
         <span class="font-bold text-red-800">离开当前页面你之后将无法在看到此信息</span>，请妥善保存。
-      ticket_number: 车票
+      ticket_number: 票号
+      ticket_information: |
+        <span class="font-bold">离开本页后将无法看到票据</span>，请妥善保存。
+      coach_id: 车厢 ID
       view: 查看
       customize: 调整个性化
       destroy: 销毁票据和所有数据

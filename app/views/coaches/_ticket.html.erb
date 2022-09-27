@@ -1,0 +1,24 @@
+<div class="mb-6 flex text-white">
+  <div class="relative w-full h-60 rounded-2xl font-mono text-white overflow-hidden cursor-pointer transition-all duration-500">
+    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-6 p-6 bg-gradient-to-tr from-gray-900 to-gray-700 transition-all duration-100 delay-200 z-20">
+      <div class="flex justify-between items-center text-2xl">
+        <div><%= t('coaches.show.coach_id') %></div>
+        <div>🚉 Subway</div>
+      </div>
+
+      <div class="">
+        <input type="text" value="<%= coach_id %>" readonly title="<%= t("coaches.verify_ticket.here_is_coach_id") %>" class="border-none w-full bg-transparent text-center text-2xl">
+      </div>
+
+      <div class="w-full flex flex-row justify-between">
+        <div class="w-full flex flex-col">
+          <label class="pl-3"><%= t('coaches.show.ticket_number') %></label>
+          <input type="text" value="<%= ticket %>" readonly title="<%= t("coaches.verify_ticket.here_is_ticket_number") %>" class="border-none bg-transparent">
+          <div class="text-center text-sm pt-2 text-gray-600">
+            <%= raw t('coaches.show.ticket_information') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

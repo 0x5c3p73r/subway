@@ -37,6 +37,8 @@ en:
       coach_id: Coach ID
       ticket_number: Ticket No.
       submit: Submit
+      here_is_coach_id: Here is Coach ID
+      here_is_ticket_number: Here is Ticket Number
 
     new:
       title: Get your coach
@@ -51,6 +53,10 @@ en:
         The ticket number is show in right side.
         <span class="font-bold">Make sure to copy your ticket now.</span>
         You won’t be able to see it again!
+      ticket_information: |
+        <span class="font-bold">Make sure to copy your ticket now.</span>
+        You won’t be able to see it again!
+      coach_id: Coach ID
       ticket_number: Ticket No.
       customize: Customize
       destroy: Destroy ticket and all data
