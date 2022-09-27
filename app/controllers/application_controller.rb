@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale
-    parsed_locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0]
+    parsed_locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)[0]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : I18n.default_locale
   end
 
