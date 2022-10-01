@@ -1,6 +1,7 @@
 require "net/http"
 
 class ShortsController < ApplicationController
+  skip_before_action :set_locale
   before_action :set_coach, only: :show
 
   rescue_from Errno::ECONNREFUSED, Net::HTTPServerException, with: :http_request_error
