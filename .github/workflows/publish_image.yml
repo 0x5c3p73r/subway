@@ -37,12 +37,20 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
 
+      - name: Docker metadata
+        id: metadata
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository }}
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
+          labels: ${{ steps.metadata.outputs.labels }}
           tags: |
+            ${{ steps.metadata.outputs.tags }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.build_date.outputs.value }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           platforms: linux/amd64,linux/arm64
@@ -50,7 +58,5 @@ jobs:
           cache-to: type=gha,mode=max,scope=docker-build-release
           build-args: |
             REPLACE_CHINA_MIRROR=false
-            VCS_REF=${{ github.sha }}
-            BUILD_DATE=${{ steps.build_date.outputs.value }}
           secrets: |
             "master_key=${{ secrets.COMPLIE_ASSETS_MASTER_KEY }}"

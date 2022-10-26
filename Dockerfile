@@ -52,10 +52,6 @@ RUN rm -rf docker tmp/cache spec .devcontainer .github .gitignore .gitattributes
 
 FROM ruby:${VARIANT}-slim
 
-ARG BUILD_DATE
-ARG VCS_REF
-
-ARG SUBWAY_VERSION="0.1.2"
 ARG REPLACE_CHINA_MIRROR="true"
 ARG ORIGINAL_REPO_URL="deb.debian.org"
 ARG MIRROR_REPO_URL="mirrors.ustc.edu.cn"
@@ -65,22 +61,12 @@ ARG RUBY_GEMS="bundler:2.3.7"
 ARG RAILS_SERVE_STATIC_FILES=true
 ARG APP_ROOT=/app
 
-LABEL org.opencontainers.image.title="Subway" \
-      org.opencontainers.image.authors="0x5c3p73r <0x5c3p73r@gmail.com>" \
-      org.opencontainers.image.source="https://github.com/0x5c3p73r/subway" \
-      org.opencontainers.image.created=$BUILD_DATE \
-      org.opencontainers.image.revision=$VCS_REF \
-      org.opencontainers.image.version=$SUBWAY_VERSION
-
 ENV TZ="Asia/Shanghai" \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
     BUNDLE_APP_CONFIG="$APP_ROOT/.bundle" \
     RAILS_ENV="production" \
     RAILS_SERVE_STATIC_FILES=${RAILS_SERVE_STATIC_FILES} \
-    RAILS_LOG_TO_STDOUT=true \
-    SUBWAY_VCS_REF="$VCS_REF" \
-    SUBWAY_VERSION="$SUBWAY_VERSION" \
-    SUBWAY_BUILD_DATE="$BUILD_DATE"
+    RAILS_LOG_TO_STDOUT=true
 
 # System dependencies
 RUN set -ex && \

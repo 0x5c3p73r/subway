@@ -1,7 +1,7 @@
 module ApplicationHelper
   def subway(version: true)
     name = "Subway"
-    version = ENV["SUBWAY_VERSION"] || Subway::VERSION
+    version = ENV["DOCKER_META_VERSION"] || Subway::VERSION
     name = "#{name} v#{version}" if version
     name
   end
