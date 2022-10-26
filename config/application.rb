@@ -18,6 +18,8 @@ require "action_view/railtie"
 Bundler.require(*Rails.groups)
 
 module Subway
+  VERSION = "0.2.0"
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
