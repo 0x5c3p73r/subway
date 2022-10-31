@@ -7,13 +7,22 @@
       </div>
 
       <div class="">
-        <input type="text" data-action="click->copyboard#copy" value="<%= coach_id %>" readonly title="<%= t("coaches.verify_ticket.here_is_coach_id") %>" class="border-none w-full bg-transparent text-center text-2xl">
+        <input id="coach-id" type="text"
+          data-action="click->copyboard#copy"
+          value="<%= coach_id %>" readonly
+          title="<%= t("coaches.verify_ticket.here_is_coach_id") %>"
+          class="border-none w-full bg-transparent text-center text-2xl">
       </div>
 
       <div class="w-full flex flex-row justify-between">
         <div class="w-full flex flex-col">
           <label class="pl-3"><%= t('coaches.show.ticket_number') %></label>
-          <input type="text" data-action="click->copyboard#copy" value="<%= ticket %>" readonly title="<%= t("coaches.verify_ticket.here_is_ticket_number") %>" class="border-none bg-transparent">
+          <input id="ticket" type="text"
+            data-copy-sync-target="ticket"
+            data-action="click->copyboard#copy"
+            value="<%= ticket %>" readonly t
+            itle="<%= t("coaches.verify_ticket.here_is_ticket_number") %>"
+            class="border-none bg-transparent">
           <div class="text-center text-sm pt-2 text-gray-600">
             <%= raw t('coaches.show.ticket_information') %>
           </div>

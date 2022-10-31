@@ -1,6 +1,6 @@
 <%= render "layouts/page_title", title: t('.title') %>
 
-<div class="mx-auto mt-10 max-w-6xl" data-controller="coach">
+<div class="mx-auto mt-10 max-w-6xl" data-controller="coach copy-sync">
   <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg">
     <div class="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-600">
       <h1 class="font-bold text-4xl dark:text-slate-200"><%= t('.title') %></h1>
@@ -11,7 +11,10 @@
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
           <%= t('.coach_id') %>
         </label>
-        <input data-coach-target="coachId" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <input data-coach-target="coachId"
+          data-action="copy-sync#sync"
+          data-sync-target="coach-id"
+          class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       </div>
     </div>
 
@@ -20,7 +23,10 @@
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
           <%= t('.ticket_number') %>
         </label>
-        <input data-coach-target="ticket" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <input data-coach-target="ticket"
+          data-action="copy-sync#sync"
+          data-sync-target="ticket"
+          class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       </div>
     </div>
 
