@@ -1,7 +1,3 @@
-require "faraday"
-require "faraday/retry"
-require "faraday/follow_redirects"
-
 module HttpRequest
   extend ActiveSupport::Concern
 
