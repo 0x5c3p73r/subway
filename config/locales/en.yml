@@ -81,12 +81,12 @@ en:
   configs:
     edit:
       title: Edit Config URL
-      estroy: Destroy
+      destroy: Destroy
 
   subscribes:
     edit:
       title: Edit Subscribe or Node URL
-      estroy: Destroy
+      destroy: Destroy
 
   encrypted_data:
     index:
