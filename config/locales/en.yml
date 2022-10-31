@@ -6,6 +6,7 @@ en:
       description: |
         You know where you hope this train will take you, but you don't know for sure. But it doesn't matter.
         How can it not matter to you where that train will take you? Because you'll be together.
+      verify_ticket: Verify ticket
       how_it_works: How it works
       how_it_works_step:
         one:
@@ -53,11 +54,12 @@ en:
         The ticket number is show in right side.
         <span class="font-bold">Make sure to copy your ticket now.</span>
         You won’t be able to see it again!
+      ticket_number: Ticket No.
       ticket_information: |
         <span class="font-bold">Make sure to copy your ticket now.</span>
         You won’t be able to see it again!
       coach_id: Coach ID
-      ticket_number: Ticket No.
+      view: View
       customize: Customize
       destroy: Destroy ticket and all data
 
@@ -67,28 +69,38 @@ en:
         Use ticket to custormize this coach.
         <span class="font-bold">Make sure to copy your ticket now.</span>
       blank_config: Blank
+      edit: Edit
+      back_to_coach: Go back
+      cancel: Cancel
 
   backends:
     edit:
       title: Edit Backend URL
+      destroy: Destroy
 
   configs:
     edit:
       title: Edit Config URL
+      estroy: Destroy
 
   subscribes:
     edit:
       title: Edit Subscribe or Node URL
+      estroy: Destroy
 
   encrypted_data:
     index:
       title: Generate encrypted data
       # master_key:
       # encryped_data:
-      # raw_data:
-      # generate:
+      raw_data: Raw data
+      generate: Generate
 
   activerecord:
+    models:
+      subscribe: Subscribe
+      config: Config
+      backend: Backend
     errors:
       default:
         one: "%{count} error prohibited this coach from being saved:"
@@ -99,13 +111,30 @@ en:
             link:
               url: is not a valid URL, accepts HTTP/HTTPS/SS/SSR/VMESS/TROJAN scheme only.
 
+    attributes:
+      coach:
+        subscribes: Subscribes
+      backend:
+        name: Name
+        link: Link
+      config:
+        name: Name
+        link: Link
+      subscribe:
+        name: Name
+        link: Link
+
   helpers:
     label:
       coach:
+        name: Name
+        description: Description
+        target: Target
         subscribe_urls: Subscribe URLs
         configs: Config URL
         backends: Backend URL
         subconverter_url: Subconverter URL
+        permalink: permalink
 
     placeholder:
       coach:
