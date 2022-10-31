@@ -1,5 +1,7 @@
 # 🚉 Subway
 
+[![doc:zh-cn](https://img.shields.io/badge/%E6%96%87%E6%A1%A3-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-green)](docs/zh-CN/README.md)
+
 You're waiting for a train, a train that will take you far away.
 You know where you hope this train will take you, but you don't know for sure. But it doesn't matter.
 How can it not matter to you where that train will take you? Because you'll be together.
