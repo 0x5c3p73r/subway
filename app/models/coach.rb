@@ -123,8 +123,9 @@ class Coach < ApplicationRecord
   end
 
   def fetch_content(overwrite_params = {})
+    logger.info "Fetching content for backend by id: #{id}"
     res = fetch(subconverter_url(overwrite_params))
-    raise "Can not request content from subconverter api" unless res.is_a?(Net::HTTPSuccess)
+    raise Faraday::Error, "Can not request content from backend" unless res.success?
 
     res.body
   end

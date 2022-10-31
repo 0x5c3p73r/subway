@@ -1,24 +1,39 @@
-require "net/http"
+require "faraday"
+require "faraday/retry"
+require "faraday/follow_redirects"
 
 module HttpRequest
   extend ActiveSupport::Concern
 
   def fetch(url)
     uri = URI(url)
-    req = Net::HTTP::Get.new(uri)
-    req["User-Agent"] = "Subway/0.1.0"
-    res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
-      http.request(req)
+    conn = Faraday.new(uri.normalize) do |f|
+      # default timeout is 60s
+      f.adapter :net_http
+      f.request :retry, retry_options
+      f.response :logger if Rails.env.development?
+      f.response :follow_redirects
+
+      f.headers[:user_agent] = "Subway/#{Subway::VERSION}"
     end
 
-    case res
-    when Net::HTTPSuccess
-      res
-    when Net::HTTPRedirection
-      location = res["location"]
-      fetch(location)
-    else
-      res.value
-    end
+    conn.get(uri.path)
+  end
+
+  private
+
+  def retry_options
+    @retry_options ||= {
+      max: 3,
+      interval: 0.05,
+      interval_randomness: 0.5,
+      backoff_factor: 2,
+      exceptions: [
+        Errno::ECONNREFUSED,
+        EOFError,
+        Timeout::Error,
+        Net::HTTPExceptions
+      ]
+    }
   end
 end

@@ -4,7 +4,7 @@ class ShortsController < ApplicationController
   skip_before_action :set_locale
   before_action :set_coach, only: :show
 
-  rescue_from Errno::ECONNREFUSED, Net::HTTPServerException, with: :http_request_error
+  rescue_from Faraday::Error, OpenSSL::SSL::SSLError, with: :http_request_error
 
   # GET /:coach_id
   def show

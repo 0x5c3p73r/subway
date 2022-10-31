@@ -14,10 +14,15 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 
-# Database
+# Database (Model)
 gem "pg"
+gem "validate_url", "~> 1.0.15"
 
-gem 'validate_url', '1.0.15'
+# HTTP Client
+gem "faraday", "~> 2.6.0", require: false
+gem "faraday-retry", "~> 2.0.0", require: false
+gem "faraday-follow_redirects", "~> 0.3", require: false
+
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 

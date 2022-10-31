@@ -3,6 +3,7 @@ module ApplicationHelper
     name = "Subway"
     version = ENV["DOCKER_META_VERSION"] || Subway::VERSION
     name = "#{name} v#{version}" if version
+    name = "#{name}-dev" if Rails.env.development?
     name
   end
 
