@@ -10,9 +10,9 @@ Rails.application.routes.draw do
         get :verify_ticket
       end
 
-      resources :subscribes, only: %i[ edit update :destroy ]
-      resources :configs, only: %i[ edit update :destroy ]
-      resources :backends, only: %i[ edit update :destroy ]
+      resources :subscribes, only: %i[ edit update destroy ]
+      resources :configs, only: %i[ edit update destroy ]
+      resources :backends, only: %i[ edit update destroy ]
     end
 
     if ENV["ENABLE_TOOLS_API"] == "true" || Rails.env.development?

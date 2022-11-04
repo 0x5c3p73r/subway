@@ -22,6 +22,7 @@ class BackendsController < ApplicationController
 
   # DELETE /coach/:coach_id/backends/:id
   def destroy
+    @coach.coach_backends.find_by(backend: @backend).destroy
     @backend.destroy
 
     respond_to do |format|

@@ -43,7 +43,7 @@ class CoachesController < ApplicationController
     process_subscribes(@coach)
     respond_to do |format|
       if @coach.update(coach_params)
-        format.html { redirect_to coach_url(@coach, locale: I18n.locale), notice: "Coach was successfully updated." }
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Coach was successfully updated." }
         format.json { render json: @coach, status: :created }
       else
         format.html { render :edit, status: :unprocessable_entity }

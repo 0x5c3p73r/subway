@@ -75,16 +75,19 @@ zh-CN:
     edit:
       title: 修改后端地址
       destroy: 删除
+      destroy_confirm: 删除后无法恢复，确认删除？
 
   configs:
     edit:
       title: 修改配置文件地址
       destroy: 删除
+      destroy_confirm: 删除后无法恢复，确认删除？
 
   subscribes:
     edit:
       title: 修改订阅地址或单节点地址
       destroy: 删除
+      destroy_confirm: 删除后无法恢复，确认删除？
 
   encrypted_data:
     index:

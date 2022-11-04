@@ -77,16 +77,19 @@ en:
     edit:
       title: Edit Backend URL
       destroy: Destroy
+      destroy_confirm: Are you sure?
 
   configs:
     edit:
       title: Edit Config URL
       destroy: Destroy
+      destroy_confirm: Are you sure?
 
   subscribes:
     edit:
       title: Edit Subscribe or Node URL
       destroy: Destroy
+      destroy_confirm: Are you sure?
 
   encrypted_data:
     index:
