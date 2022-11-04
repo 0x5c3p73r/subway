@@ -60,3 +60,4 @@ jobs:
             REPLACE_CHINA_MIRROR=false
           secrets: |
             "master_key=${{ secrets.COMPLIE_ASSETS_MASTER_KEY }}"
+            "credentials_data=${{ secrets.COMPLIE_ASSETS_CREDENTIALS_DATA }}"

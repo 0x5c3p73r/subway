@@ -38,7 +38,9 @@ RUN bundle config --global frozen 1 && \
 
 COPY . $APP_ROOT
 
-RUN --mount=type=secret,id=master_key,target=/app/config/master.key,required=true bin/rails assets:precompile
+RUN --mount=type=secret,id=master_key,target=/app/config/master.key,required=true \
+    --mount=type=secret,id=credentials_data,target=/app/config/credentials.yml.enc,required=true \
+    bin/rails assets:precompile
 
 # Remove folders not needed in resulting image
 RUN rm -rf docker tmp/cache spec .devcontainer .github .gitignore .gitattributes \
