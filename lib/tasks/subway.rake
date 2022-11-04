@@ -11,13 +11,24 @@ namespace :subway do
   end
 
   task :credentials do
-    master_key_path = Rails.root.join('config', 'credentials', 'production.key')
-    encrypted_file_path = Rails.root.join('config', 'credentials', 'production.yml.enc')
-    encrypted_data = ENV['RAILS_ENCRYPTED_DATA'].presence
+    if Rails.env.development?
+      encrypted_file_path = Rails.root.join('config', 'credentials.yml.enc')
 
-    if encrypted_data && (!File.exist?(encrypted_file_path) || File.read(encrypted_file_path).empty?)
-      puts "Write encrypted data into #{encrypted_file_path}"
-      File.write(encrypted_file_path, ENV['RAILS_ENCRYPTED_DATA'])
+      require "rails/generators/rails/master_key/master_key_generator"
+      master_key_generator = Rails::Generators::MasterKeyGenerator.new([], quiet: true, force: false)
+      master_key_generator.add_master_key_file_silently
+      master_key_generator.ignore_master_key_file_silently
+
+      require "rails/generators/rails/credentials/credentials_generator"
+      Rails::Generators::CredentialsGenerator.new([], quiet: true).add_credentials_file
+    else
+      master_key_path = Rails.root.join('config', 'credentials', 'production.key')
+      encrypted_file_path = Rails.root.join('config', 'credentials', 'production.yml.enc')
+      encrypted_data = ENV['RAILS_ENCRYPTED_DATA'].presence
+      if encrypted_data && (!File.exist?(encrypted_file_path) || File.read(encrypted_file_path).empty?)
+        puts "Write encrypted data into #{encrypted_file_path}"
+        File.write(encrypted_file_path, ENV['RAILS_ENCRYPTED_DATA'])
+      end
     end
 
     encrypted = Rails.application.encrypted(encrypted_file_path)
