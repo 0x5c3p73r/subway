@@ -41,3 +41,5 @@
 
 # vscode
 .history
+
+node_modules/
