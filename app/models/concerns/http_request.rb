@@ -16,6 +16,21 @@ module HttpRequest
     conn.get(uri.path)
   end
 
+  def head(url)
+    uri = URI(url)
+    conn = Faraday.new(uri.normalize) do |f|
+      # default timeout is 60s
+      f.adapter :net_http
+      f.request :retry, retry_options
+      f.response :logger if Rails.env.development?
+      f.response :follow_redirects
+
+      f.headers[:user_agent] = "Subway/#{Subway::VERSION}"
+    end
+
+    conn.head(uri.path)
+  end
+
   private
 
   def retry_options

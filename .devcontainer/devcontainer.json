@@ -28,13 +28,19 @@
     }
   },
 
-  "postCreateCommand": "bundle exec rails db:seed",
+  "postCreateCommand": "bundle exec rails db:migrate && bundle exec rails db:seed",
 
-  "forwardPorts": [3000, 25500],
+  "forwardPorts": [3000, 5432, 8081, 25500],
 
   "portsAttributes": {
     "3000": {
       "label": "Rails Server"
+    },
+    "5432": {
+      "label": "Postgres server"
+    },
+    "8081": {
+      "label": "pgweb server"
     },
     "25500": {
       "label": "Subconverter API Server"

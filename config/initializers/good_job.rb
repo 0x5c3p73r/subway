@@ -13,6 +13,11 @@ Rails.application.configure do
         cron: "0 */5 * * *",
         class: "BackendVersionCheckerJob",
         description: "Syncing and storing subconverter api version"
+      },
+      syncing_subscribe_bandwidth: {
+        cron: "0 */5 * * *",
+        class: "SubscribeBandwidthUsageJob",
+        description: "Syncing and storing subscribe bandwidth usages"
       }
     }
   }

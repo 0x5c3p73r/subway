@@ -32,6 +32,8 @@ en:
         four:
           title: Unqiue URL
           description: Generate one unqiue url, use anywhere.
+    coach:
+      expired_at: expired in %{date}
 
     verify_ticket:
       title: Verify Ticket

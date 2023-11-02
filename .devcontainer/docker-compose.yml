@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   app:
@@ -7,7 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
 
     environment:
-      DATABASE_URL: postgres://postgres:postgres@db/postgres
+      DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
       LOCAL_BACKEND_URL: http://subconverter
 
     volumes:
@@ -16,11 +16,12 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
-    # network_mode: service:db
+    network_mode: service:db
 
   subconverter:
     restart: unless-stopped
     image: tindy2013/subconverter
+    network_mode: service:db
 
   db:
     image: postgres:12-alpine
@@ -36,6 +37,8 @@ services:
     image: sosedoff/pgweb
     restart: unless-stopped
     network_mode: service:db
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@localhost/postgres"
 
 volumes:
   postgres-data:

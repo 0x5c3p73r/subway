@@ -32,6 +32,8 @@ zh-CN:
         four:
           title: 唯一地址
           description: 生成独立且永不改变的唯一 URL，个性化随时修改。
+    coach:
+      expired_at: '%{date}过期'
 
     verify_ticket:
       title: 验票服务
@@ -161,3 +163,20 @@ zh-CN:
       coach:
         create: 生成
         update: 更新
+
+  # Overwrite rails built-in
+  datetime:
+    distance_in_words:
+      about_x_hours: '约 %{count} 小时'
+      about_x_months: '约 %{count} 个月'
+      about_x_years: '约 %{count} 年'
+      almost_x_years: 接近 %{count} 年
+      half_a_minute: 半分钟前
+      less_than_x_seconds: 不到 %{count} 秒
+      less_than_x_minutes: 不到 %{count} 分钟
+      over_x_years: " %{count} 年多"
+      x_seconds: " %{count} 秒"
+      x_minutes: " %{count} 分钟"
+      x_days: " %{count} 天"
+      x_months: " %{count} 个月"
+      x_years: " %{count} 年"

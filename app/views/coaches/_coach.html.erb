@@ -23,11 +23,16 @@
           <% coach.subscribes.each do |subscribe| %>
           <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
             <div class="flex w-0 flex-1 items-center text-gray-900 dark:text-white">
-              <span class="ml-2 w-0 flex-1 truncate"><%= subscribe.name %></span>
-              <span class="ml-2 w-0 flex-1 truncate text-gray-400"> <%= time_ago_in_words(subscribe.created_at) %> ago</span>
+              <span class="ml-2 w-0 flex-1 truncate">
+                <%= link_to subscribe.name, subscribe.link, target: "_blank", class: "font-medium text-indigo-600 text-blue-600 hover:text-blue-500 dark:text-blue-400"  %>
+              </span>
+              <span class="ml-2 w-0 flex-1 truncate"><%= bandwidth_usage(subscribe) %></span>
             </div>
             <div class="ml-4 flex-shrink-0">
-              <%= link_to t('coaches.show.view'), subscribe.link, target: "_blank", class: "font-medium text-indigo-600 text-blue-600 hover:text-blue-500 dark:text-blue-400"  %>
+              <span class="ml-2 w-0 flex-1 truncate text-gray-400"><%= t('.expired_at', date: time_ago_in_words(subscribe.expired_at)) %></span>
+              <!--
+              <span class="ml-2 w-0 flex-1 truncate text-gray-400"><%= time_ago_in_words(subscribe.created_at) %> ago</span>
+              -->
             </div>
           </li>
           <% end %>
