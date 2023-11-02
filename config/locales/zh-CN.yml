@@ -49,6 +49,8 @@ zh-CN:
       english: English
       chinese: 简体中文
       github: Github
+      dashboard: 任务控制台
+      tools: 工具箱
 
     show:
       title: 票务信息

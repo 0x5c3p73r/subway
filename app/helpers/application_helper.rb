@@ -16,4 +16,12 @@ module ApplicationHelper
     new_source = I18n.locale == :en ? source : "#{I18n.locale}/#{source}"
     image_tag(new_source, options)
   end
+
+  def dashboard_enable?
+    Rails.env.development?
+  end
+
+  def tools_enable?
+    Rails.env.development?
+  end
 end
