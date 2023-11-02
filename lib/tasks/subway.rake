@@ -1,12 +1,15 @@
 namespace :subway do
   task upgrade: :environment do
-    db_version = ActiveRecord::Migrator.current_version
-    if db_version.blank? || db_version.zero?
-      Rake::Task['db:setup'].invoke # need db/schema.rb
-      Rake::Task['db:migrate:status'].invoke
-    else
-      Rake::Task['db:migrate'].invoke
+    begin
+      db_version = ActiveRecord::Migrator.current_version
+      if db_version.blank? || db_version.zero?
+        Rake::Task['db:create'].invoke
+      end
+    rescue
+      Rake::Task['db:create'].invoke
     end
+
+    Rake::Task['db:migrate'].invoke
     Rake::Task['db:seed'].invoke
   end
 

@@ -47,3 +47,8 @@ README.*
 .ruby-gemset
 .ruby-version
 .codeclimate.yml
+
+# vscode
+.devcontainer
+.history
+.ruby-lsp

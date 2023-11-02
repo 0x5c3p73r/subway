@@ -1,0 +1,4 @@
+#!/command/with-contenv sh
+
+echo "Launching Subway Worker Service"
+cd /app && bin/good_job start

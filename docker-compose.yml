@@ -6,8 +6,8 @@ services:
     image: ghcr.io/0x5c3p73r/subway
     environment:
       # TODO: Generate new RAILS_MASTER_KEY and RAILS_ENCRYPTED_DATA first!
-      RAILS_MASTER_KEY: a8ec28f5d85aad6fca7064073c19bf68
-      RAILS_ENCRYPTED_DATA: "K73YeivVdHgi+ZozIMQgY81bBDDVdXVIB7gOkKzyabCjExL3Oz+xN73/21Or7R0Qg5LCJypBes4iIStlZdLv28h3gA720fM3ASx+3LEVsaRQLNWppNgzjZEzMtK2g6N90ONBEak6nYw1ZXN+rdSSd1ca4uAu3miKPcj7WIYpYtwYFNtj+CXWWWRbkrHn4w+qSc1aXgzwy8tJFRzk7RT2LPJx0VFicEWcrNptSMbYjqhTB6WPKAa8C2hQ+S2ZtL9kUCTAt0HdDQxij6CfpcrQ+xyqPmGqRFg9fnS+mHIoy2Waj7SbolBUkA6+lspdgT9aN4dVSdFVbZ27GHHoM4B34q/RdksBdDElZTu2sHR8j8Jln7sCwOTcDV/p--zC08K/6vAg/dIvaz--UvqVCjL2KkMCiJbTBvC4PQ=="
+      RAILS_MASTER_KEY: 7408a3d52c88d0ace5d8f4f89f9bcab6
+      RAILS_ENCRYPTED_DATA: "vkSVlfx7Ng4nhR9G9+b1mB7uGGy6kYMwh/VQx+iu8bcikDDHPmKeZPTl/MlbQbxm9wb0mvFYf1QJgxZYESMmJPlx8riTxfNDXy03Kj7JRy/jvS7ukG5lDWh19q4KFmFuLBau8RnTzY1X4tAvOohTwthn0vqqIXyKz4oWHKD58n1dXEnqgleMbVcByd6R7DMoHObTiqOqNdOmZhTxF8tMi1pqed/o99hdwX+QZVlAPPQeHogAUYJSKmmVTUE7+qfqBsR4wLOYsJ6IUuQ2NffMK5mKN4+5l9Um2yKIFM6Uf9mZubSka0Vps/AxjDknvI64o28AYGG4IKO6p6VL7UYFvQetiQD82Y4VnfjCEMIU++zrnfPJynX8Ai/yBvJRWMc85Ih3cune5p4FRAHKE7d1+zkaiwJiP7AT7GDcdEsUj1bR75r89Elxy2FigBY7Yi7G7M2LksojGNlleg==--qdAMzc1LPAKtoSBX--KuT6f/drwrv6yxFISc7eIw=="
 
       # Only support postgresql database
       DATABASE_URL: postgres://postgres:postgres@db/postgres
@@ -16,10 +16,12 @@ services:
       DEFAULT_LOCALE: zh-CN
 
       # Optinal, set a alias name, unless use host as backend name.
-      # LOCAL_BACKEND_NAME: local-api
-      LOCAL_BACKEND_URL: http://localhost:25500
+      # SUBWAY_BACKEND_NAME: local-api
+      SUBWAY_BACKEND_URL: http://localhost:25500
     ports:
       - "3000:3000"
+    depends_on:
+      - db
 
   subconverter:
     restart: unless-stopped

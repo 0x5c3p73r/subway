@@ -1,0 +1,4 @@
+#!/command/with-contenv sh
+
+echo "Launching Subway Web Server"
+cd /app && bin/puma -C config/puma.rb | tee log/production.log

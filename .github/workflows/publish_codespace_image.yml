@@ -24,7 +24,7 @@ jobs:
     - name: Build and push Codespace image
       uses: docker/build-push-action@v3
       env:
-        REPLACE_CHINA_MIRROR: false
+        ENABLE_DEBIAN_MIRROR: false
       with:
         context: .
         file: .devcontainer/Dockerfile.dev
