@@ -6,6 +6,9 @@ on:
       - develop
     tags:
       - v*
+    paths-ignore:
+      - '.devcontainer/*'
+      - '.github/workflows/publish_codespace_image.yml*'
   workflow_dispatch:
 
 env:
