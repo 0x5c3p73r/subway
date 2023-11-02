@@ -10,6 +10,7 @@ class Subscribe < ApplicationRecord
   validates :link, presence: true, url: { schemes: ['http', 'https', 'ss', 'ssr', 'vmess', 'trojan'] }
 
   before_create :generate_name
+  after_save :updating_bandwidh_usage
 
   def bandwidth_check
     # Subscription-Userinfo: upload=%f; download=%f; total=%f; expire=%f
@@ -29,5 +30,11 @@ class Subscribe < ApplicationRecord
         expired_at: expired_time.present? ? Time.at(expired_time.to_i) : nil
       )
     end
+  end
+
+  private
+
+  def updating_bandwidh_usage
+    SubscribeBandwidthUsageJob.perform_later(subscribe_id: id)
   end
 end

@@ -18,9 +18,9 @@ class CreateSystemDataService < ApplicationService
       end
     end
 
-    if (local_backend = ENV["LOCAL_BACKEND_URL"]) && local_backend.present?
+    if (local_backend = ENV["SUBWAY_BACKEND_URL"]) && local_backend.present?
       Backend.find_or_create_by(link: local_backend) do |m|
-        m.name = "local"
+        m.name = ENV.fetch("SUBWAY_BACKEND_NAME", "local")
         m.source = :system
       end
     end
