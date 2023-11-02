@@ -15,17 +15,14 @@
         "terminal.integrated.defaultProfile.linux": "zsh"
       },
       "extensions": [
+        // ruby & rails
         "shopify.ruby-extensions-pack",
-        // below extensions count are equal above pack.
-        // "koichisasada.vscode-rdbg",
-        // sorbet.sorbet-vscode-extension
-
         "aki77.rails-db-schema",
         // "castwide.solargraph",
         // "kaiwood.endwise",
 
+        // misc
         "redhat.vscode-yaml",
-
         "editorconfig.editorconfig"
       ]
     }

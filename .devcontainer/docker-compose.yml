@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: ..
-      dockerfile: .devcontainer/Dockerfile.dev
+      dockerfile: .devcontainer/Dockerfile
 
     environment:
       DATABASE_URL: postgres://postgres:postgres@db/postgres
