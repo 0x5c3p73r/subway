@@ -13,7 +13,7 @@ class Backend < ApplicationRecord
 
   before_create :generate_name
   before_create :generate_source
-  after_save :perform_version_check
+  after_save :updating_backend_version
 
   def system?
     source == "system"
@@ -24,6 +24,8 @@ class Backend < ApplicationRecord
   end
 
   def name_with_version
+    return name if version.blank?
+
     "#{name} - #{version}"
   end
 
@@ -42,7 +44,7 @@ class Backend < ApplicationRecord
 
   private
 
-  def perform_version_check
+  def updating_backend_version
     BackendVersionCheckerJob.perform_later(backend_id: id)
   end
 
