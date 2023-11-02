@@ -5,19 +5,21 @@ LABEL org.opencontainers.image.title="Subway" \
       org.opencontainers.image.source="https://github.com/0x5c3p73r/subway"
 
 # Install ruby on rails dependencies:
-ARG BUILD_PACKAGES="gzip libaudit1 libbz2-1.0 libc6 libcap-ng0 libcom-err2 libcrypt1 libffi7 libgcc-s1 libgmp10 libgnutls30 libgssapi-krb5-2 libhogweed6 libicu67 libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 liblzma5 libmariadb3 libncurses6 libncursesw6 libnettle8 libnsl2 libp11-kit0 libpam0g libpq5 libreadline-dev libreadline8 libsasl2-2 libssl-dev libssl1.1 libstdc++6 libtasn1-6 libtinfo6 libtirpc3 libunistring2 libxml2 procps zlib1g"
-ARG PROJECT_PACKAGES="sudo tar ca-certificates tzdata git zsh curl postgresql-client"
+ARG BUILD_PACKAGES="libpq-dev yarnpkg git zlib1g-dev build-essential libssl-dev libreadline-dev \
+                    libyaml-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev \
+                    software-properties-common libffi-dev"
+ARG PROJECT_PACKAGES="sudo tar ca-certificates tzdata git zsh curl watchman postgresql-client"
 
-ARG REPLACE_CHINA_MIRROR="true"
+ARG ENABLE_DEBIAN_MIRROR="true"
 ARG ORIGINAL_REPO_URL="deb.debian.org"
 ARG MIRROR_REPO_URL="mirrors.ustc.edu.cn"
 ARG RUBYGEMS_SOURCE="https://gems.ruby-china.com/"
-ARG RUBY_GEMS="bundler:2.3.26 solargraph foreman"
+ARG RUBY_GEMS="bundler:2.4.21 solargraph foreman"
 
 # System dependencies
 RUN set -ex && \
-    if [[ "$REPLACE_CHINA_MIRROR" == "true" ]]; then \
-      sed -i "s/$ORIGINAL_REPO_URL/$MIRROR_REPO_URL/g" /etc/apt/sources.list && \
+    if [[ "$ENABLE_DEBIAN_MIRROR" == "true" ]]; then \
+      sed -i "s/$ORIGINAL_REPO_URL/$MIRROR_REPO_URL/g" /etc/apt/sources.list.d/debian.sources && \
       gem sources --add $RUBYGEMS_SOURCE --remove https://rubygems.org/ && \
       bundle config mirror.https://rubygems.org $RUBYGEMS_SOURCE; \
     fi && \

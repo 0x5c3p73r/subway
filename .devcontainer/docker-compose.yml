@@ -4,10 +4,11 @@ services:
   app:
     build:
       context: ..
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: .devcontainer/Dockerfile.dev
 
     environment:
       DATABASE_URL: postgres://postgres:postgres@db/postgres
+      LOCAL_BACKEND_URL: http://subconverter
 
     volumes:
       - ..:/workspace:cached
@@ -30,6 +31,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+
+  pgweb:
+    image: sosedoff/pgweb
+    restart: unless-stopped
+    network_mode: service:db
 
 volumes:
   postgres-data:

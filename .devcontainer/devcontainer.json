@@ -9,25 +9,29 @@
   //   "context": "../"
   // },
 
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "zsh"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "shopify.ruby-extensions-pack",
+        // below extensions count are equal above pack.
+        // "koichisasada.vscode-rdbg",
+        // sorbet.sorbet-vscode-extension
+
+        "aki77.rails-db-schema",
+        // "castwide.solargraph",
+        // "kaiwood.endwise",
+
+        "redhat.vscode-yaml",
+
+        "editorconfig.editorconfig"
+      ]
+    }
   },
 
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-    "aki77.rails-db-schema",
-		"castwide.solargraph",
-		"kaiwood.endwise",
-		"koichisasada.vscode-rdbg",
-		"rebornix.ruby",
-		"redhat.vscode-yaml",
-
-    "editorconfig.editorconfig"
-    // "misogi.ruby-rubocop",
-    // "wingrunr21.vscode-ruby"
-  ],
-
-  // "postCreateCommand": "bundle install"
+  "postCreateCommand": "bundle exec rails db:seed",
 
   "forwardPorts": [3000, 25500],
 
