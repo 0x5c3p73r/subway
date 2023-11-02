@@ -1,4 +1,4 @@
-ARG VARIANT=3.0.3
+ARG VARIANT=3.2.2
 FROM ruby:${VARIANT}
 LABEL org.opencontainers.image.title="Subway" \
       org.opencontainers.image.authors="0x5c3p73r <0x5c3p73r@gmail.com>" \
@@ -12,7 +12,7 @@ ARG REPLACE_CHINA_MIRROR="true"
 ARG ORIGINAL_REPO_URL="deb.debian.org"
 ARG MIRROR_REPO_URL="mirrors.ustc.edu.cn"
 ARG RUBYGEMS_SOURCE="https://gems.ruby-china.com/"
-ARG RUBY_GEMS="bundler:2.3.7 solargraph foreman"
+ARG RUBY_GEMS="bundler:2.3.26 solargraph foreman"
 
 # System dependencies
 RUN set -ex && \
