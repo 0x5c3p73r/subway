@@ -29,7 +29,13 @@
               <span class="ml-2 w-0 flex-1 truncate"><%= bandwidth_usage(subscribe) %></span>
             </div>
             <div class="ml-4 flex-shrink-0">
-              <span class="ml-2 w-0 flex-1 truncate text-gray-400"><%= t('.expired_at', date: time_ago_in_words(subscribe.expired_at)) %></span>
+              <span class="ml-2 w-0 flex-1 truncate text-gray-400">
+              <% if subscribe.expired_at.present? %>
+                <%= t('.expired_at', date: time_ago_in_words(subscribe.expired_at)) %>
+              <% else %>
+                -
+              <% end %>
+              </span>
               <!--
               <span class="ml-2 w-0 flex-1 truncate text-gray-400"><%= time_ago_in_words(subscribe.created_at) %> ago</span>
               -->
