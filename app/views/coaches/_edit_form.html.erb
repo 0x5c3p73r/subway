@@ -36,6 +36,14 @@
               <div class="ml-4 flex-shrink-0">
                 <%= link_to t("coaches.edit.edit"), edit_coach_subscribe_path(coach, subscribe, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
               </div>
+
+              <div class="ml-4 flex-shrink-0">
+                <% if subscribe.disabled %>
+                <%= link_to t("coaches.edit.enable"), enable_coach_subscribe_path(coach, subscribe, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
+                <% else %>
+                <%= link_to t("coaches.edit.disable"), disable_coach_subscribe_path(coach, subscribe, locale: I18n.locale), class: "font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400" %>
+                <% end %>
+              </div>
             </li>
             <% end %>
           </ul>

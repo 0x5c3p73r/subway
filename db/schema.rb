@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_02_054843) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_14_015934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_02_054843) do
     t.bigint "download_used"
     t.bigint "total_bandwidth"
     t.datetime "expired_at"
+    t.boolean "disabled"
   end
 
   add_foreign_key "coach_backends", "backends"

@@ -14,7 +14,12 @@ Rails.application.routes.draw do
         get :verify_ticket
       end
 
-      resources :subscribes, only: %i[ edit update destroy ]
+      resources :subscribes, only: %i[ edit update destroy ] do
+        member do
+          get :disable
+          get :enable
+        end
+      end
       resources :configs, only: %i[ edit update destroy ]
       resources :backends, only: %i[ edit update destroy ]
     end

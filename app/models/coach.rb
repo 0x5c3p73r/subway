@@ -107,6 +107,10 @@ class Coach < ApplicationRecord
     _encrypt(private_key) == encrypt_value
   end
 
+  def subscribe_url?
+    !subscribes.where(disabled: false).count.zero?
+  end
+
   def subconverter_url(overwrite_params = {})
     new_target = overwrite_params.delete(:target) || target
 
@@ -147,7 +151,7 @@ class Coach < ApplicationRecord
   end
 
   def subscribes_urls
-    subscribes.select(:link).map(&:link).join("|")
+    subscribes.enabled.select(:link).map(&:link).join("|")
   end
 
   def generate_name
