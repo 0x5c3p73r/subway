@@ -7,6 +7,8 @@ class Subscribe < ApplicationRecord
   has_many :coach_subscribes
   has_many :coaches, through: :coach_subscribes
 
+  scope :enabled, -> { where(disabled: false) }
+
   validates :link, presence: true, url: { schemes: ['http', 'https', 'ss', 'ssr', 'vmess', 'trojan'] }
 
   before_create :generate_name
@@ -18,10 +20,10 @@ class Subscribe < ApplicationRecord
     head_response = head(link)
     if head_response.success? && (userinfo = head_response.headers['subscription-userinfo'])
       upload, download, total, expired_time = userinfo.split('; ').map { |s| s.split('=')[-1].strip }
-      puts upload
-      puts download
-      puts total
-      puts expired_time
+      # puts upload
+      # puts download
+      # puts total
+      # puts expired_time
 
       update(
         upload_used: upload.to_i,

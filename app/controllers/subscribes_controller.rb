@@ -1,6 +1,6 @@
 class SubscribesController < ApplicationController
-  before_action :set_coach, only: %i[ edit update destroy ]
-  before_action :set_subscribe, only: %i[ show edit update destroy ]
+  before_action :set_coach, only: %i[ edit update destroy enable disable ]
+  before_action :set_subscribe, only: %i[ show edit update destroy enable disable ]
   before_action :set_ticket, only: %i[ edit update destroy ]
 
   # GET /coach/:coach_id/subscribes/:id/edit
@@ -31,6 +31,30 @@ class SubscribesController < ApplicationController
     end
   end
 
+  def enable
+    respond_to do |format|
+      if @subscribe.update(disabled: false)
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Subscribe was successfully updated." }
+        format.json { render json: @subscribe, status: :created }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @subscribe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable
+    respond_to do |format|
+      if @subscribe.update(disabled: true)
+        format.html { redirect_to edit_coach_url(@coach, locale: I18n.locale), notice: "Subscribe was successfully updated." }
+        format.json { render json: @subscribe, status: :created }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @subscribe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_coach
@@ -39,7 +63,7 @@ class SubscribesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_subscribe
-    @subscribe = Subscribe.find(params[:id])
+    @subscribe = @coach.subscribes.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
