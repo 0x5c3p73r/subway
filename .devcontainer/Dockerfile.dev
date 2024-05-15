@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.title="Subway" \
 ARG BUILD_PACKAGES="libpq-dev yarnpkg git zlib1g-dev build-essential libssl-dev libreadline-dev \
                     libyaml-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev \
                     software-properties-common libffi-dev"
-ARG PROJECT_PACKAGES="sudo tar ca-certificates tzdata git zsh curl watchman postgresql-client"
+ARG PROJECT_PACKAGES="sudo tar ca-certificates tzdata git tig zsh curl watchman postgresql-client"
 
 ARG ENABLE_DEBIAN_MIRROR="true"
 ARG ORIGINAL_REPO_URL="deb.debian.org"
