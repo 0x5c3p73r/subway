@@ -34,6 +34,8 @@ zh-CN:
           description: 生成独立且永不改变的唯一 URL，个性化随时修改。
     coach:
       expired_at: '%{date}过期'
+      disabled: 禁用中
+      enabled: 启用中
 
     verify_ticket:
       title: 验票服务
@@ -74,6 +76,8 @@ zh-CN:
       edit: 编辑
       back_to_coach: 返回
       cancel: 取消
+      disable: 禁用
+      enable: 启用
 
   backends:
     edit:

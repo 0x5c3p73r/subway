@@ -152,7 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_015934) do
     t.bigint "download_used"
     t.bigint "total_bandwidth"
     t.datetime "expired_at"
-    t.boolean "disabled"
+    t.boolean "disabled", default: false, null: false
   end
 
   add_foreign_key "coach_backends", "backends"

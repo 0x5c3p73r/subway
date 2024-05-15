@@ -34,6 +34,8 @@ en:
           description: Generate one unqiue url, use anywhere.
     coach:
       expired_at: expired in %{date}
+      disabled: Disabled
+      enabled: Enabled
 
     verify_ticket:
       title: Verify Ticket
@@ -76,6 +78,8 @@ en:
       edit: Edit
       back_to_coach: Go back
       cancel: Cancel
+      disable: Disable
+      enable: Enable
 
   backends:
     edit:
